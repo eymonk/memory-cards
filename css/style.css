@@ -1,6 +1,18 @@
+@import './header.css';
 @font-face {
     src: url('../assets/fonts/Comfortaa.ttf');
     font-family: 'Comfortaa';
+}
+
+:root {
+    /* colors */
+    --transparent-white: #fffc;
+    --gradient-gray: linear-gradient(45deg, #333, #555);
+
+    /* gaps */
+    --gap-small: 0.5rem;
+    --gap-medium: 1rem;
+    --gap-large: 2rem;
 }
 
 * {
@@ -13,5 +25,5 @@ body {
     font-size: 20px;
     font-family: 'Comfortaa';
     min-height: 100vh;
-    background: linear-gradient(45deg, #333, #555);
+    background: var(--gradient-gray);
 }
