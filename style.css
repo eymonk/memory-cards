@@ -1,25 +1,27 @@
-@import './header.css';
-@import './cards.css';
+@import './css/header.css';
+@import './css/cards.css';
 
 @font-face {
-    src: url('../assets/fonts/Comfortaa.ttf');
+    src: url('assets/fonts/Comfortaa.ttf');
     font-family: 'Comfortaa';
 }
 
 :root {
     /* colors */
-    --transparent-white: #fffc;
-    --gradient-gray: linear-gradient(45deg, #333, #555);
     --white: #fff;
+    --black: #000;
+    --gray-dark: #333;
+    --gray: #666;
+    --transparent-white: #fffc;
+
+    /* gradients */
+    --gradient-gray: linear-gradient(45deg, var(--gray-dark), var(--gray));
     --gradient-purple: linear-gradient(45deg, #511172, #9640c2);
 
     /* gaps */
     --gap-small: 0.5rem;
     --gap-medium: 1rem;
     --gap-large: 2rem;
-
-    /* border-radiuses */
-    --border-radius-large: 15px;
 }
 
 * {

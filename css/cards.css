@@ -8,23 +8,63 @@
     padding: var(--gap-large);
 }
 
-
 .main__wrapper_cards {
     width: 100%;
     display: grid;
-
     gap: var(--gap-medium);
 }
 
-.main__card {
+.card {
+    position: relative;
     width: 100%;
     height: 300px;
 
+    border-radius: 20px;
     border: 4px solid var(--white);
-    border-radius: var(--border-radius-large);
-    background: var(--gradient-purple);
     cursor: pointer;
+
+    transform-style: preserve-3d;
+    transition: all 500ms;
 }
+
+.card.visible{
+    transform: rotateY(180deg);
+}
+
+.card__front {
+    background: var(--gradient-purple);
+    color: #000;
+}
+
+.card__back{
+    background: var(--black);
+    transform: rotateY(180deg);
+}
+
+.card__front,
+.card__back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.card__back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 /* grid's configurations */
 .grid-4-2 {
