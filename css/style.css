@@ -1,4 +1,6 @@
 @import './header.css';
+@import './cards.css';
+
 @font-face {
     src: url('../assets/fonts/Comfortaa.ttf');
     font-family: 'Comfortaa';
@@ -8,11 +10,16 @@
     /* colors */
     --transparent-white: #fffc;
     --gradient-gray: linear-gradient(45deg, #333, #555);
+    --white: #fff;
+    --gradient-purple: linear-gradient(45deg, #511172, #9640c2);
 
     /* gaps */
     --gap-small: 0.5rem;
     --gap-medium: 1rem;
     --gap-large: 2rem;
+
+    /* border-radiuses */
+    --border-radius-large: 15px;
 }
 
 * {
