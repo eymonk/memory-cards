@@ -1,0 +1,38 @@
+@import './css/header.css';
+@import './css/cards.css';
+
+@font-face {
+    src: url('assets/fonts/Comfortaa.ttf');
+    font-family: 'Comfortaa';
+}
+
+:root {
+    /* colors */
+    --white: #fff;
+    --black: #000;
+    --gray-dark: #333;
+    --gray: #666;
+    --transparent-white: #fffc;
+
+    /* gradients */
+    --gradient-gray: linear-gradient(45deg, var(--gray-dark), var(--gray));
+    --gradient-purple: linear-gradient(45deg, #511172, #9640c2);
+
+    /* gaps */
+    --gap-small: 0.5rem;
+    --gap-medium: 1rem;
+    --gap-large: 2rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 20px;
+    font-family: 'Comfortaa';
+    min-height: 100vh;
+    background: var(--gradient-gray);
+}
