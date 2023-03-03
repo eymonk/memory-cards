@@ -1,5 +1,6 @@
 @import './css/header.css';
 @import './css/cards.css';
+@import './css/message.css';
 
 @font-face {
     src: url('assets/font/Comfortaa.ttf');
@@ -12,16 +13,26 @@
     --black: #000;
     --gray-dark: #333;
     --gray: #666;
+    --purple-dark: #491064;
+    --purple: #9a27d2;
     --transparent-white: #fffc;
+    --transparent-dark: #0009;
 
     /* gradients */
     --gradient-gray: linear-gradient(45deg, var(--gray-dark), var(--gray));
-    --gradient-purple: linear-gradient(45deg, #511172, #9640c2);
+    --gradient-purple: linear-gradient(45deg, var(--purple-dark), var(--purple));
 
     /* gaps */
     --gap-small: 0.5rem;
     --gap-medium: 1rem;
     --gap-large: 2rem;
+    --gap-large-2: 3rem;
+    --gap-large-3: 4rem;
+
+    /* transition time */
+    --transition-slow: 500ms;
+    --transition-medium: 250ms;
+    --transition-fast: 150ms;
 }
 
 * {
@@ -31,8 +42,29 @@
 }
 
 body {
+    position: relative;
     font-size: 20px;
     font-family: 'Comfortaa';
     min-height: 100vh;
     background: var(--gradient-gray);
+}
+
+.btn {
+    padding: var(--gap-small) var(--gap-medium);
+    font: inherit;
+    font-size: 1rem;
+
+    background: var(--gradient-purple);
+    color: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 7px;
+    cursor: pointer;
+    transition: border
+}
+.btn:hover {
+    border-color: var(--white);
+}
+
+.hidden {
+    display: none;
 }
