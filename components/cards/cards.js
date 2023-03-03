@@ -1,4 +1,5 @@
 import state from '../state.js';
+import { showLevelMessage } from '../message/message.js';
 const cards = document.querySelectorAll('.card');
 
 function shuffleArray(array) {
@@ -23,6 +24,7 @@ function createImageSources() {
 
 
 function closeCard(card) {
+    state.openCardsNumber--;
     state.openedCard.classList.remove('visible');
 }
 
@@ -44,6 +46,9 @@ function checkOpenedCard(card) {
     }
 
     card.classList.add('visible');
+    state.openCardsNumber++;
+
+    if (state.openCardsNumber >= state.cardsNumber) showLevelMessage();
 }
 
 function setupCards() {
