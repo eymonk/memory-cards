@@ -1,4 +1,5 @@
 import state from '../state.js';
+import { openGallery } from '../gallery/gallery.js';
 
 const messageWrapper = document.querySelector('.message__wrapper');
 const messageText = document.querySelector('.message__text');
@@ -28,7 +29,7 @@ function showLevelMessage() {
     switch(state.level) {
         case 1:
             title = 'Good👍';
-            text = 'Now choose what to do next - show photos from the cards or go to the next level right away.';
+            text = 'Now choose what to do next - show photos from the cards or go to the next level right away. (The next level contains all the photos from this level.)';
             break;
         case 2:
             title = 'Well done!';
@@ -48,6 +49,12 @@ function showLevelMessage() {
 
 const messageCloseBtn = document.querySelector('.message__btn_ok');
 messageCloseBtn.addEventListener('click', closeMessage);
+
+const messageShowPhotosBtn = document.querySelector('.message__btn_show-photos');
+messageShowPhotosBtn.addEventListener('click', () => {
+    closeMessage();
+    openGallery();
+});
 
 export {
     showLevelMessage,

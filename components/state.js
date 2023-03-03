@@ -5,6 +5,11 @@ const state = {
     openedCard: null,
     level: 1,
     imageSources: [],
+
+    gallery: {
+        activeIndicator: 1,
+        currentImgNumber: 1,
+    }
 }
 
 export default state;

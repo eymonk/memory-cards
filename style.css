@@ -1,6 +1,7 @@
 @import './css/header.css';
-@import 'components/cards/cards.css';
-@import 'components/message/message.css';
+@import './components/cards/cards.css';
+@import './components/message/message.css';
+@import './components/gallery/gallery.css';
 
 @font-face {
     src: url('assets/font/Comfortaa.ttf');
@@ -67,4 +68,9 @@ body {
 
 .hidden {
     display: none;
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
 }
