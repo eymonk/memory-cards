@@ -1,4 +1,4 @@
-import { setupCards } from './js/cards.js';
+import { setupCards } from './components/cards/cards.js';
 
 setupCards();
 

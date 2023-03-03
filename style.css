@@ -1,6 +1,6 @@
 @import './css/header.css';
-@import './css/cards.css';
-@import './css/message.css';
+@import 'components/cards/cards.css';
+@import 'components/message/message.css';
 
 @font-face {
     src: url('assets/font/Comfortaa.ttf');

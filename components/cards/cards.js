@@ -1,4 +1,4 @@
-import state from './state.js';
+import state from '../state.js';
 const cards = document.querySelectorAll('.card');
 
 function shuffleArray(array) {
