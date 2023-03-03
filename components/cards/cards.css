@@ -24,7 +24,7 @@
     cursor: pointer;
 
     transform-style: preserve-3d;
-    transition: all 500ms;
+    transition: transform var(--transition-slow);
 }
 
 .card.visible{
