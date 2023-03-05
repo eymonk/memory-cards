@@ -5,6 +5,10 @@ setupCards();
 setupGallery();
 
 /*
-DEALS LIST
+NOT TO FORGET list
+
 - add photo compression for small images
+- add cards hover effect
+- style message__text form
+
 */
