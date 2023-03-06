@@ -28,8 +28,9 @@ const state = {
     }
 }
 
-function restartGame() {
+function startGame() {
     state.allowGame = true;
+    state.cards.openedNumber = 0;
     closeAllCards();
     setupImages();
     setLevelTimer();
@@ -37,4 +38,4 @@ function restartGame() {
 
 export default state;
 
-export { restartGame };
+export { startGame };

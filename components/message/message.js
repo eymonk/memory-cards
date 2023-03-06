@@ -1,4 +1,4 @@
-import state, { restartGame } from '../state.js';
+import state, { startGame } from '../state.js';
 import { openGallery } from '../gallery/gallery.js';
 
 const messageContainer = document.querySelector('.message__container');
@@ -74,7 +74,7 @@ messageBtnShowPhotos.addEventListener('click', () => {
 
 function closeAndStart() {
     closeMessage();
-    restartGame();
+    startGame();
 }
 
 const messageBtnStart = document.querySelector('.message__btn_start');

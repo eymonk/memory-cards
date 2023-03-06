@@ -56,6 +56,7 @@ function checkOpenedCard(card) {
 
     card.classList.add('visible');
     state.cards.openedNumber++;
+    console.log(state.cards.openedNumber);
 
     if (state.cards.openedNumber >= state.cards.totalNumber) {
         clearInterval(state.time.timer);
