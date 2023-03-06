@@ -1,10 +1,11 @@
 import { setupCards } from './components/cards/cards.js';
 import { setupGallery } from './components/gallery/gallery.js';
-import { setLevelTimer } from './components/level-time/level-time.js';
+import { restartGame } from './components/state.js';
 
 setupCards();
 setupGallery();
-setLevelTimer(10);
+restartGame();
+
 
 /*
 NOT TO FORGET list

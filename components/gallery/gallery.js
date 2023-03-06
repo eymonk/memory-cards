@@ -20,7 +20,7 @@ function closeGallery() {
 
 
 function flipThrough(direction) {
-    const photosNumber = state.cardsNumber / 2;
+    const photosNumber = state.cards.totalNumber / 2;
     let number = state.gallery.currentImgNumber;
 
     if (direction === 'next') number = number >= photosNumber ? 1 : (number + 1);

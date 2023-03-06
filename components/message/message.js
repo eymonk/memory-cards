@@ -1,4 +1,4 @@
-import state from '../state.js';
+import state, { restartGame } from '../state.js';
 import { openGallery } from '../gallery/gallery.js';
 
 const messageContainer = document.querySelector('.message__container');
@@ -64,6 +64,12 @@ const messageBtnShowPhotos = document.querySelector('.message__btn_show-photos')
 messageBtnShowPhotos.addEventListener('click', () => {
     closeMessage();
     openGallery();
+});
+
+const messageBtnRetry = document.querySelector('.message__btn_retry');
+messageBtnRetry.addEventListener('click', () => {
+    closeMessage();
+    restartGame();
 });
 
 export {
