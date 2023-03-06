@@ -11,12 +11,19 @@
 <body>
     <header class="header">
         <h1 class="header__title">Memory Cards</h1>
-        <div class="header__wrapper header__wrapper_level">
+        <div class="header__wrapper header__wrapper_level-info">
             <p class="header__label">
                 level <span class="header__value header__value_level">1</span>
             </p>
+            <p class="header__label">
+                time <span class="header__value header__value_time">10</span>s
+            </p>
+        </div>
+        <div class="header__wrapper header__wrapper_menu">
+            <button class="btn">menu</button>
         </div>
     </header>
+
     <main class="main">
         <div class="main__wrapper main__wrapper_cards grid-4-2">
             <div id="card-1" class="main__card card">
@@ -87,16 +94,21 @@
         </ul>
     </div>
 
-    <div class="message__wrapper hidden">
+    <div class="message__container hidden">
         <div class="message">
             <p class="message__title"></p>
             <p class="message__text"></p>
-            <div class="message__controls message__controls_next-level hidden">
-                <button class="btn message__btn_show-photos">show photos</button>
-                <button class="btn message__btn_next-level">next level</button>
-            </div>
-            <div class="message__controls message__controls_close">
-                <button class="btn message__btn_ok">ok</button>
+            <div class="message__wrapper message__wrapper_btns">
+                <div class="message__controls message__controls_level-next hidden">
+                    <button class="btn message__btn_show-photos">show photos</button>
+                    <button class="btn message__btn_level-next">next level</button>
+                </div>
+                <div class="message__controls message__controls_level-stop hidden">
+                    <button class="btn message__btn_retry">retry</button>
+                </div>
+                <div class="message__controls message__controls_close">
+                    <button class="btn message__btn_close">close</button>
+                </div>
             </div>
         </div>
     </div>

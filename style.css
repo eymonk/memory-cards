@@ -14,16 +14,20 @@
     --black: #000;
     --gray-dark: #333;
     --gray: #666;
-    --purple-dark: #491064;
+    --gray-light: #aaa;
     --purple: #9a27d2;
+    --purple-dark: #491064;
+    --purple-light: #dd9aff;
     --transparent-white: #fffc;
     --transparent-dark: #0009;
 
     /* gradients */
     --gradient-gray: linear-gradient(45deg, var(--gray-dark), var(--gray));
     --gradient-purple: linear-gradient(45deg, var(--purple-dark), var(--purple));
+    --gradient-purple-light: linear-gradient(45deg, var(--purple), var(--purple-light));
 
     /* gaps */
+    --gap-small-extra: 0.25rem;
     --gap-small: 0.5rem;
     --gap-medium: 1rem;
     --gap-large: 2rem;
@@ -34,6 +38,11 @@
     --transition-slow: 500ms;
     --transition-medium: 250ms;
     --transition-fast: 150ms;
+
+    /* border-radius */
+    --border-radius: 5px;
+    --border-radius-medium: 10px;
+    --border-radius-large: 15px;
 }
 
 * {
@@ -45,7 +54,7 @@
 body {
     position: relative;
     font-size: 20px;
-    font-family: 'Comfortaa';
+    font-family: 'Comfortaa', 'Tahoma', sans-serif;
     min-height: 100vh;
     background: var(--gradient-gray);
 }
@@ -57,13 +66,14 @@ body {
 
     background: var(--gradient-purple);
     color: var(--white);
-    border: 2px solid var(--black);
-    border-radius: 7px;
+    border: none;
+    border-radius: var(--border-radius);
     cursor: pointer;
-    transition: border
+    border-bottom: 3px solid var(--black);
+    transition: border-color var(--transition-fast);
 }
 .btn:hover {
-    border-color: var(--white);
+    border-color: var(--white) ;
 }
 
 .hidden {

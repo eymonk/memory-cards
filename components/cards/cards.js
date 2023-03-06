@@ -11,21 +11,29 @@ function shuffleArray(array) {
     return array;
 }
 
-function createImageSources() {
-    for (let i = 0; i < (state.cardsNumber / 2); i++) {
-        state.imageSources.push(`../assets/img/${i + 1}.jpg`);
-        state.imageSources.push(`../assets/img/${i + 1}.jpg`);
-    };
+function setupImages() {
     shuffleArray(state.imageSources);
-
     const imgElements = document.querySelectorAll('.card__img');
     imgElements.forEach((img, ind) => img.setAttribute('src', state.imageSources[ind]));
 }
 
+function createImageSources() {
+    for (let i = 0; i < (state.cards.totalNumber / 2); i++) {
+        state.imageSources.push(`../assets/img/${i + 1}.jpg`);
+        state.imageSources.push(`../assets/img/${i + 1}.jpg`);
+    }
+    setupImages();
+}
 
-function closeCard(card) {
-    state.openCardsNumber--;
+
+function closeCard() {
+    state.cards.openedNumber--;
     state.openedCard.classList.remove('visible');
+}
+
+function closeAllCards() {
+    state.cards.openedNumber = 0;
+    cards.forEach(card => card.classList.remove('visible'));
 }
 
 function checkOpenedCard(card) {
@@ -46,9 +54,12 @@ function checkOpenedCard(card) {
     }
 
     card.classList.add('visible');
-    state.openCardsNumber++;
+    state.cards.openedNumber++;
 
-    if (state.openCardsNumber >= state.cardsNumber) showLevelMessage();
+    if (state.cards.openedNumber >= state.cards.totalNumber) {
+        clearInterval(state.time.timer);
+        showLevelMessage();
+    }
 }
 
 function setupCards() {
@@ -56,10 +67,10 @@ function setupCards() {
 
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            if (!card.classList.contains('visible')) checkOpenedCard(card);
+            if (state.allowGame && !card.classList.contains('visible')) checkOpenedCard(card);
         });
     });
 }
 
 
-export { setupCards };
+export { setupCards, setupImages, closeAllCards };

@@ -1,10 +1,23 @@
+import { closeAllCards, setupImages } from './cards/cards.js';
+import { setLevelTimer } from './level-time/level-time.js';
+
 const state = {
-    cardsNumber: 8,
-    openCardsNumber: 0,
-    openedCardSrc: null,
-    openedCard: null,
+    allowGame: true,
     level: 1,
+
     imageSources: [],
+
+    cards: {
+        totalNumber: 8,
+        openedNumber: 0,
+        openedCard: null,
+        openedSrc: null,
+    },
+
+    time: {
+        timer: null,
+        levelTime: 10,
+    },
 
     gallery: {
         activeIndicator: 1,
@@ -12,4 +25,13 @@ const state = {
     }
 }
 
+function restartGame() {
+    state.allowGame = true;
+    closeAllCards();
+    setupImages();
+    setLevelTimer();
+}
+
 export default state;
+
+export { restartGame };

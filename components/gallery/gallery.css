@@ -90,7 +90,7 @@
 
 	font-weight: bold;
 	list-style: none;
-	border-radius: 3px;
+	border-radius: var(--border-radius);
 }
 
 .gallery__indicator {
@@ -101,7 +101,7 @@
 
 	background-color: var(--black);
 	border: 2px solid var(--white);
-	border-radius: 4px;
+	border-radius: var(--border-radius);
 	box-shadow: 3px 3px 3px var(--gray-dark);
 	cursor: pointer;
 }
