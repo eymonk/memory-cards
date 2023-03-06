@@ -38,6 +38,11 @@
     --transition-slow: 500ms;
     --transition-medium: 250ms;
     --transition-fast: 150ms;
+
+    /* border-radius */
+    --border-radius: 5px;
+    --border-radius-medium: 10px;
+    --border-radius-large: 15px;
 }
 
 * {
@@ -49,7 +54,7 @@
 body {
     position: relative;
     font-size: 20px;
-    font-family: 'Comfortaa';
+    font-family: 'Comfortaa', 'Tahoma', sans-serif;
     min-height: 100vh;
     background: var(--gradient-gray);
 }
@@ -62,7 +67,7 @@ body {
     background: var(--gradient-purple);
     color: var(--white);
     border: none;
-    border-radius: 7px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     border-bottom: 3px solid var(--black);
     transition: border-color var(--transition-fast);

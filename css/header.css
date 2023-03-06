@@ -19,11 +19,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: var(--gap-small-extra) var(--gap-small);
+    padding: var(--gap-small) var(--gap-medium);
 
     color: var(--gray-light);
     background: var(--gray-dark);
-    border-radius: 3px;
+    border-radius: var(--border-radius);
 }
 
 .header__value {

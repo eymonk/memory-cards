@@ -15,7 +15,7 @@ function createImageSources() {
     for (let i = 0; i < (state.cardsNumber / 2); i++) {
         state.imageSources.push(`../assets/img/${i + 1}.jpg`);
         state.imageSources.push(`../assets/img/${i + 1}.jpg`);
-    };
+    }
     shuffleArray(state.imageSources);
 
     const imgElements = document.querySelectorAll('.card__img');
@@ -23,7 +23,7 @@ function createImageSources() {
 }
 
 
-function closeCard(card) {
+function closeCard() {
     state.openCardsNumber--;
     state.openedCard.classList.remove('visible');
 }
@@ -48,7 +48,10 @@ function checkOpenedCard(card) {
     card.classList.add('visible');
     state.openCardsNumber++;
 
-    if (state.openCardsNumber >= state.cardsNumber) showLevelMessage();
+    if (state.openCardsNumber >= state.cardsNumber) {
+        clearInterval(state.timer);
+        showLevelMessage();
+    }
 }
 
 function setupCards() {
@@ -56,7 +59,7 @@ function setupCards() {
 
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            if (!card.classList.contains('visible')) checkOpenedCard(card);
+            if (state.allowGame && !card.classList.contains('visible')) checkOpenedCard(card);
         });
     });
 }

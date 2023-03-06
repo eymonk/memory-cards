@@ -1,27 +1,37 @@
 import state from '../state.js';
 import { openGallery } from '../gallery/gallery.js';
 
-const messageWrapper = document.querySelector('.message__wrapper');
+const messageContainer = document.querySelector('.message__container');
 const messageText = document.querySelector('.message__text');
 const messageTitle = document.querySelector('.message__title');
-const messageControlsLevel = document.querySelector('.message__controls_next-level');
+const messageControlsLevelNext = document.querySelector('.message__controls_level-next');
+const messageControlsLevelStop = document.querySelector('.message__controls_level-stop');
 const messageControlsClose = document.querySelector('.message__controls_close');
 
-function showMessage(text, title = 'System message', withLevelControls) {
-    messageWrapper.classList.remove('hidden');
-    messageText.textContent = text;
+function showMessage(text, title = 'System message', type) {
+    messageContainer.classList.remove('hidden');
+    messageText.innerHTML = text;
     messageTitle.textContent = title;
 
-    if (withLevelControls) {
-        messageControlsLevel.classList.remove('hidden');
-        messageControlsClose.classList.add('hidden');
+    switch(type) {
+        case 'level-next':
+            messageControlsLevelNext.classList.remove('hidden');
+            messageControlsClose.classList.remove('hidden');
+            break;
+        case 'level-stop':
+            messageControlsLevelStop.classList.remove('hidden');
+            messageControlsClose.classList.remove('hidden');
+            break;
+        default:
+            messageControlsClose.classList.remove('hidden');
     }
 }
 
 function closeMessage() {
-    messageWrapper.classList.add('hidden');
-    messageControlsLevel.classList.add('hidden');
-    messageControlsClose.classList.remove('hidden');
+    messageContainer.classList.add('hidden');
+    messageControlsLevelNext.classList.add('hidden');
+    messageControlsLevelStop.classList.add('hidden');
+    messageControlsClose.classList.add('hidden');
 }
 
 function showLevelMessage() {
@@ -29,7 +39,7 @@ function showLevelMessage() {
     switch(state.level) {
         case 1:
             title = 'Good👍';
-            text = 'Now choose what to do next - show photos from the cards or go to the next level right away. (The next level contains all the photos from this level.)';
+            text = 'Now choose what to do next - show photos from the cards or go to the next level right away.<br><br>(The next level contains all the photos from this level.)';
             break;
         case 2:
             title = 'Well done!';
@@ -44,18 +54,19 @@ function showLevelMessage() {
             text = 'You seem to be pretty clever! I like you😊';
     }
 
-    showMessage(text, title, true);
+    showMessage(text, title, 'level-next');
 }
 
-const messageCloseBtn = document.querySelector('.message__btn_ok');
-messageCloseBtn.addEventListener('click', closeMessage);
+const messageBtnClose = document.querySelector('.message__btn_close');
+messageBtnClose.addEventListener('click', closeMessage);
 
-const messageShowPhotosBtn = document.querySelector('.message__btn_show-photos');
-messageShowPhotosBtn.addEventListener('click', () => {
+const messageBtnShowPhotos = document.querySelector('.message__btn_show-photos');
+messageBtnShowPhotos.addEventListener('click', () => {
     closeMessage();
     openGallery();
 });
 
 export {
     showLevelMessage,
+    showMessage,
 };
