@@ -12,15 +12,16 @@ function shuffleArray(array) {
 }
 
 function setupImages() {
-    shuffleArray(state.imageSources);
+    shuffleArray(state.imagesSources.compressed);
     const imgElements = document.querySelectorAll('.card__img');
-    imgElements.forEach((img, ind) => img.setAttribute('src', state.imageSources[ind]));
+    imgElements.forEach((img, ind) => img.setAttribute('src', state.imagesSources.compressed[ind]));
 }
 
 function createImageSources() {
     for (let i = 0; i < (state.cards.totalNumber / 2); i++) {
-        state.imageSources.push(`../assets/img/${i + 1}.jpg`);
-        state.imageSources.push(`../assets/img/${i + 1}.jpg`);
+        state.imagesSources.original.push(`../assets/img/${i + 1}.jpg`);
+        state.imagesSources.compressed.push(`../assets/img/compressed/${i + 1}.jpg`);
+        state.imagesSources.compressed.push(`../assets/img/compressed/${i + 1}.jpg`);
     }
     setupImages();
 }

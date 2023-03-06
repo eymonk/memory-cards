@@ -5,7 +5,10 @@ const state = {
     allowGame: true,
     level: 1,
 
-    imageSources: [],
+    imagesSources: {
+        original: [],
+        compressed: []
+    },
 
     cards: {
         totalNumber: 8,
