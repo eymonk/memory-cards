@@ -18,7 +18,7 @@
 .header__label {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between;
     padding: var(--gap-small) var(--gap-medium);
 
     color: var(--gray-light);
@@ -27,8 +27,20 @@
 }
 
 .header__value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     font-weight: bold;
     color: var(--purple-light);
+}
+
+.header__value_level {
+    justify-content: flex-end;
+    width: 24px;
+}
+.header__value_time {
+    width: 50px;
 }
 
 .header__wrapper_level-info {
