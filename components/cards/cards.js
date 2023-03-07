@@ -1,6 +1,7 @@
 import state from '../state.js';
 import { showLevelMessage } from '../message/message.js';
 import { openGallery } from '../gallery/gallery.js';
+import { showMenuBtnGallery } from '../menu/menu.js';
 
 const cards = document.querySelectorAll('.card');
 function shuffleArray(array) {
@@ -27,7 +28,6 @@ function closeCard() {
 }
 
 function closeAllCards() {
-    state.cards.openedNumber = 0;
     cards.forEach(card => card.classList.remove('visible'));
 }
 
@@ -48,6 +48,8 @@ function setupImages() {
 
 function checkOpenedCard(card) {
     const cardImg = card.querySelector('img');
+    card.classList.add('visible');
+    state.cards.openedNumber++;
 
     if (state.openedCard) {
         if(state.openedCardSrc !== cardImg.src) {
@@ -62,14 +64,12 @@ function checkOpenedCard(card) {
         state.openedCardSrc = cardImg.src;
         state.openedCard = card;
     }
-
-    card.classList.add('visible');
-    state.cards.openedNumber++;
-
+    
     if (state.cards.openedNumber >= state.cards.totalNumber) {
         state.allowGame = false;
         clearInterval(state.time.timer);
         showLevelMessage();
+        showMenuBtnGallery();
         addCardsHoverEffect();
     }
 }

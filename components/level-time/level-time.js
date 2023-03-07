@@ -2,11 +2,12 @@ import state from '../state.js';
 import { showMessage } from '../message/message.js';
 
 function setLevelTimer() {
+    clearInterval(state.time.timer);
+
+    let timeLeft = state.time.levelTime;
     const time = document.querySelector('.header__value_time');
     time.textContent = state.time.levelTime;
     state.allowGame = true;
-
-    let timeLeft = state.time.levelTime;
 
     state.time.timer = setInterval(() => {
         time.textContent = `${--timeLeft}`;
