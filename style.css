@@ -1,4 +1,5 @@
 @import './css/header.css';
+@import './components/menu/menu.css';
 @import './components/cards/cards.css';
 @import './components/message/message.css';
 @import './components/gallery/gallery.css';
@@ -18,8 +19,9 @@
     --purple: #9a27d2;
     --purple-dark: #491064;
     --purple-light: #dd9aff;
-    --transparent-white: #fffc;
+    --transparent-white: #fffb;
     --transparent-dark: #0009;
+    --transparent-dark-2: #000a;
 
     /* gradients */
     --gradient-gray: linear-gradient(45deg, var(--gray-dark), var(--gray));
