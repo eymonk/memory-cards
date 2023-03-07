@@ -1,5 +1,6 @@
 import state, { startGame } from '../state.js';
 import { openGallery } from '../gallery/gallery.js';
+import { closeMenu } from '../menu/menu.js';
 
 const messageContainer = document.querySelector('.message__container');
 const messageText = document.querySelector('.message__text');
@@ -11,6 +12,7 @@ const messageControlsClose = document.querySelector('.message__controls_close');
 const messageControlsStart = document.querySelector('.message__controls_start');
 
 function showMessage(text, title = 'System message', type) {
+    closeMenu();
     messageContainer.classList.remove('hidden');
     messageText.innerHTML = text;
     messageTitle.textContent = title;

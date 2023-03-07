@@ -1,6 +1,7 @@
 import state from '../state.js';
 import { showLevelMessage } from '../message/message.js';
 import { openGallery } from '../gallery/gallery.js';
+import { closeMenu, showMenuBtnGallery } from '../menu/menu.js';
 
 const cards = document.querySelectorAll('.card');
 function shuffleArray(array) {
@@ -22,12 +23,13 @@ function createImageSources() {
 }
 
 function closeCard() {
-    state.cards.openedNumber--;
-    state.openedCard.classList.remove('visible');
+    if (state.cards.openedCard) {
+        state.cards.openedNumber--;
+        state.cards.openedCard.classList.remove('visible');
+    }
 }
 
 function closeAllCards() {
-    state.cards.openedNumber = 0;
     cards.forEach(card => card.classList.remove('visible'));
 }
 
@@ -49,37 +51,43 @@ function setupImages() {
 function checkOpenedCard(card) {
     const cardImg = card.querySelector('img');
 
-    if (state.openedCard) {
-        if(state.openedCardSrc !== cardImg.src) {
+    if (state.cards.openedCard) {
+        if (state.cards.openedCardSrc !== cardImg.src) {
             closeCard();
-            state.openedCardSrc = cardImg.src;
-            state.openedCard = card;
+            state.cards.openedCardSrc = cardImg.src;
+            state.cards.openedCard = card;
         } else {
-            state.openedCard = null;
-            state.openedCardSrc = null;
+            state.cards.openedCard = null;
+            state.cards.openedCardSrc = null;
         }
     } else {
-        state.openedCardSrc = cardImg.src;
-        state.openedCard = card;
+        state.cards.openedCardSrc = cardImg.src;
+        state.cards.openedCard = card;
     }
-
-    card.classList.add('visible');
-    state.cards.openedNumber++;
 
     if (state.cards.openedNumber >= state.cards.totalNumber) {
         state.allowGame = false;
         clearInterval(state.time.timer);
         showLevelMessage();
+        showMenuBtnGallery();
         addCardsHoverEffect();
     }
 }
+
+function openCard(card) {
+    card.classList.add('visible');
+    state.cards.openedNumber++;
+    checkOpenedCard(card);
+}
+
 
 function setupCards() {
     createImageSources();
 
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            if (state.allowGame && !card.classList.contains('visible')) checkOpenedCard(card);
+            closeMenu();
+            if (state.allowGame && !card.classList.contains('visible')) openCard(card);
             else if(!state.allowGame && state.cards.openedNumber >= state.cards.totalNumber) {
                 const cardImgSrc = card.querySelector('img').src;
                 const regEx = /\d+(?=\.(jpg|png))/g;
