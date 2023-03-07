@@ -1,7 +1,8 @@
 import state from '../state.js';
 import { showLevelMessage } from '../message/message.js';
-const cards = document.querySelectorAll('.card');
+import { openGallery } from '../gallery/gallery.js';
 
+const cards = document.querySelectorAll('.card');
 function shuffleArray(array) {
     let randomIndex, currentIndex = array.length;
     while (currentIndex > 0) {
@@ -56,9 +57,9 @@ function checkOpenedCard(card) {
 
     card.classList.add('visible');
     state.cards.openedNumber++;
-    console.log(state.cards.openedNumber);
 
     if (state.cards.openedNumber >= state.cards.totalNumber) {
+        state.allowGame = false;
         clearInterval(state.time.timer);
         showLevelMessage();
     }
@@ -70,6 +71,12 @@ function setupCards() {
     cards.forEach(card => {
         card.addEventListener('click', () => {
             if (state.allowGame && !card.classList.contains('visible')) checkOpenedCard(card);
+            else if(!state.allowGame && state.cards.openedNumber >= state.cards.totalNumber) {
+                const cardImgSrc = card.querySelector('img').src;
+                const regEx = /\d+(?=\.(jpg|png))/g;
+                const number = cardImgSrc.match(regEx)[0];
+                openGallery(number);
+            }
         });
     });
 }

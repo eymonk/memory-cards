@@ -4,12 +4,12 @@ const body = document.querySelector('body');
 const gallery = document.querySelector('.gallery');
 const galleryImage = document.querySelector('.gallery__image');
 
-function openGallery() {
+function openGallery(number = 1) {
     gallery.style.transform = `translateY(${scrollY}px)`;
     gallery.style.display = 'flex';
     body.classList.add('stop-scrolling');
-    galleryImage.src = './assets/img/1.jpg';
-    setIndicator(1);
+    galleryImage.src = `./assets/img/${number}.jpg`;
+    setIndicator(number);
 }
 
 
