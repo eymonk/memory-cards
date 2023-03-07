@@ -1,7 +1,8 @@
 import state from '../state.js';
 import { showLevelMessage } from '../message/message.js';
-const cards = document.querySelectorAll('.card');
+import { openGallery } from '../gallery/gallery.js';
 
+const cards = document.querySelectorAll('.card');
 function shuffleArray(array) {
     let randomIndex, currentIndex = array.length;
     while (currentIndex > 0) {
@@ -9,12 +10,6 @@ function shuffleArray(array) {
         [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
     return array;
-}
-
-function setupImages() {
-    shuffleArray(state.imagesSources.compressed);
-    const imgElements = document.querySelectorAll('.card__img');
-    imgElements.forEach((img, ind) => img.setAttribute('src', state.imagesSources.compressed[ind]));
 }
 
 function createImageSources() {
@@ -26,7 +21,6 @@ function createImageSources() {
     setupImages();
 }
 
-
 function closeCard() {
     state.cards.openedNumber--;
     state.openedCard.classList.remove('visible');
@@ -35,6 +29,21 @@ function closeCard() {
 function closeAllCards() {
     state.cards.openedNumber = 0;
     cards.forEach(card => card.classList.remove('visible'));
+}
+
+function addCardsHoverEffect() {
+    cards.forEach(card => card.classList.add('card-for-winner'));
+}
+
+function removeCardsHoverEffect() {
+    cards.forEach(card => card.classList.remove('card-for-winner'));
+}
+
+function setupImages() {
+    shuffleArray(state.imagesSources.compressed);
+    const imgElements = document.querySelectorAll('.card__img');
+    imgElements.forEach((img, ind) => img.setAttribute('src', state.imagesSources.compressed[ind]));
+    removeCardsHoverEffect();
 }
 
 function checkOpenedCard(card) {
@@ -56,11 +65,12 @@ function checkOpenedCard(card) {
 
     card.classList.add('visible');
     state.cards.openedNumber++;
-    console.log(state.cards.openedNumber);
 
     if (state.cards.openedNumber >= state.cards.totalNumber) {
+        state.allowGame = false;
         clearInterval(state.time.timer);
         showLevelMessage();
+        addCardsHoverEffect();
     }
 }
 
@@ -70,6 +80,12 @@ function setupCards() {
     cards.forEach(card => {
         card.addEventListener('click', () => {
             if (state.allowGame && !card.classList.contains('visible')) checkOpenedCard(card);
+            else if(!state.allowGame && state.cards.openedNumber >= state.cards.totalNumber) {
+                const cardImgSrc = card.querySelector('img').src;
+                const regEx = /\d+(?=\.(jpg|png))/g;
+                const number = cardImgSrc.match(regEx)[0];
+                openGallery(parseInt(number));
+            }
         });
     });
 }
