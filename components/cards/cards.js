@@ -12,12 +12,6 @@ function shuffleArray(array) {
     return array;
 }
 
-function setupImages() {
-    shuffleArray(state.imagesSources.compressed);
-    const imgElements = document.querySelectorAll('.card__img');
-    imgElements.forEach((img, ind) => img.setAttribute('src', state.imagesSources.compressed[ind]));
-}
-
 function createImageSources() {
     for (let i = 0; i < (state.cards.totalNumber / 2); i++) {
         state.imagesSources.original.push(`../assets/img/${i + 1}.jpg`);
@@ -27,7 +21,6 @@ function createImageSources() {
     setupImages();
 }
 
-
 function closeCard() {
     state.cards.openedNumber--;
     state.openedCard.classList.remove('visible');
@@ -36,6 +29,21 @@ function closeCard() {
 function closeAllCards() {
     state.cards.openedNumber = 0;
     cards.forEach(card => card.classList.remove('visible'));
+}
+
+function addCardsHoverEffect() {
+    cards.forEach(card => card.classList.add('card-for-winner'));
+}
+
+function removeCardsHoverEffect() {
+    cards.forEach(card => card.classList.remove('card-for-winner'));
+}
+
+function setupImages() {
+    shuffleArray(state.imagesSources.compressed);
+    const imgElements = document.querySelectorAll('.card__img');
+    imgElements.forEach((img, ind) => img.setAttribute('src', state.imagesSources.compressed[ind]));
+    removeCardsHoverEffect();
 }
 
 function checkOpenedCard(card) {
@@ -62,6 +70,7 @@ function checkOpenedCard(card) {
         state.allowGame = false;
         clearInterval(state.time.timer);
         showLevelMessage();
+        addCardsHoverEffect();
     }
 }
 
@@ -75,7 +84,7 @@ function setupCards() {
                 const cardImgSrc = card.querySelector('img').src;
                 const regEx = /\d+(?=\.(jpg|png))/g;
                 const number = cardImgSrc.match(regEx)[0];
-                openGallery(number);
+                openGallery(parseInt(number));
             }
         });
     });
