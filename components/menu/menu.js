@@ -28,7 +28,10 @@ function setupMenu() {
 
     menuBtn.addEventListener('click', toggleMenu);
     closeBtn.addEventListener('click', closeMenu);
-    galleryBtn.addEventListener('click', () => openGallery());
+    galleryBtn.addEventListener('click', () => {
+        closeMenu();
+        openGallery();
+    });
     retryBtn.addEventListener('click', () => {
         closeMenu();
         startGame();
@@ -39,4 +42,5 @@ export {
     setupMenu,
     showMenuBtnGallery,
     hideMenuBtnGallery,
+    closeMenu,
 };

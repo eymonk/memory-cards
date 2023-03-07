@@ -1,7 +1,7 @@
 import state from '../state.js';
 import { showLevelMessage } from '../message/message.js';
 import { openGallery } from '../gallery/gallery.js';
-import { showMenuBtnGallery } from '../menu/menu.js';
+import { closeMenu, showMenuBtnGallery } from '../menu/menu.js';
 
 const cards = document.querySelectorAll('.card');
 function shuffleArray(array) {
@@ -86,6 +86,7 @@ function setupCards() {
 
     cards.forEach(card => {
         card.addEventListener('click', () => {
+            closeMenu();
             if (state.allowGame && !card.classList.contains('visible')) openCard(card);
             else if(!state.allowGame && state.cards.openedNumber >= state.cards.totalNumber) {
                 const cardImgSrc = card.querySelector('img').src;
