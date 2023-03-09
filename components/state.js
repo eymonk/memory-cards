@@ -1,6 +1,6 @@
 import { closeAllCards, setupImages } from './cards/cards.js';
 import { setLevelTimer } from './level-time/level-time.js';
-import { hideMenuBtnGallery } from './menu/menu.js';
+import { hideMenuBtnGallery, hideMenuBtnNextLevel } from './menu/menu.js';
 
 const state = {
     allowGame: true,
@@ -36,6 +36,7 @@ function resetState() {
 }
 
 function startGame() {
+    hideMenuBtnNextLevel();
     hideMenuBtnGallery()
     closeAllCards();
     resetState();

@@ -1,7 +1,11 @@
 import state, {setLevelState, startGame} from '../state.js';
 import { showLevelMessage } from '../message/message.js';
-import {createImageIndicator, openGallery} from '../gallery/gallery.js';
-import { closeMenu, showMenuBtnGallery } from '../menu/menu.js';
+import { createImageIndicator, openGallery} from '../gallery/gallery.js';
+import {
+    closeMenu,
+    showMenuBtnGallery,
+    showMenuBtnNextLevel
+} from '../menu/menu.js';
 
 function shuffleArray(array) {
     let randomIndex, currentIndex = array.length;
@@ -104,6 +108,7 @@ function checkOpenedCard(card) {
         state.allowGame = false;
         clearInterval(state.time.timer);
         showLevelMessage();
+        showMenuBtnNextLevel();
         showMenuBtnGallery();
         addCardsHoverEffect();
     }
@@ -157,7 +162,7 @@ function changeGrid(number) {
 }
 
 
-function changeLevel(levelNumber) {
+function changeLevel(levelNumber = (state.level + 1)) {
     setLevelState(levelNumber);
     changeGrid(levelNumber);
     setupCards();

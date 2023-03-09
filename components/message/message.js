@@ -87,7 +87,7 @@ const messageBtnNextLevel = document.querySelector('.message__btn_level-next');
 messageBtnStart.addEventListener('click', closeAndStart);
 messageBtnRetry.addEventListener('click', closeAndStart);
 messageBtnNextLevel.addEventListener('click', () => {
-    changeLevel(state.level + 1);
+    changeLevel();
     closeAndStart();
 });
 
