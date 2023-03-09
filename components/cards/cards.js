@@ -165,6 +165,9 @@ function changeGrid(number) {
 
 
 function changeLevel(levelNumber = (state.level + 1)) {
+    const levelLabel = document.querySelector('.header__value_level');
+    levelLabel.textContent = `${levelNumber}`;
+    
     setLevelState(levelNumber);
     addImages();
     changeGrid(levelNumber);
