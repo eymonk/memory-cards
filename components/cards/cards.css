@@ -17,6 +17,7 @@
 .card {
     position: relative;
     width: 100%;
+    max-width: 210px;
     height: 280px;
 
     border-radius: var(--border-radius-large);
@@ -94,12 +95,12 @@
     grid-template-rows: repeat(4, 1fr);
 }
 .grid-5-2 {
-    max-width: 1080px;
+    max-width: 1160px;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
 }
 .grid-5-4 {
-    max-width: 1080px;
+    max-width: 1160px;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 1fr);
 }

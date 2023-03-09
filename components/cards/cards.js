@@ -1,6 +1,6 @@
 import state, {setLevelState, startGame} from '../state.js';
 import { showLevelMessage } from '../message/message.js';
-import { openGallery } from '../gallery/gallery.js';
+import {createImageIndicator, openGallery} from '../gallery/gallery.js';
 import { closeMenu, showMenuBtnGallery } from '../menu/menu.js';
 
 function shuffleArray(array) {
@@ -34,7 +34,12 @@ function setupImages() {
     if (imgElements.length < state.cards.totalNumber) {
         const cardsContainer = document.querySelector('.main__wrapper_cards');
         let number = imgElements.length;
-        while(number < state.cards.totalNumber) cardsContainer.append(createCardElement(number++));
+        let nextGalleryIndicatorNumber = (number / 2) + 1;
+
+        while(number++ < state.cards.totalNumber) {
+            cardsContainer.append(createCardElement(number));
+            if (!(number % 2)) createImageIndicator(nextGalleryIndicatorNumber++);
+        };
     }
 
     imgElements.forEach((img, ind) => img.setAttribute('src', state.imagesSources.compressed[ind]));
@@ -134,7 +139,6 @@ function setupCards() {
 function changeGrid(number) {
     const cardsGrid = document.querySelector('.main__wrapper_cards');
     cardsGrid.className = 'main__wrapper main__wrapper_cards';
-    console.log('CHANGING GRID', number);
 
     switch(number) {
         case 2:
