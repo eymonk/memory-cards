@@ -21,14 +21,24 @@ function closeGallery() {
 
 function flipThrough(direction) {
     const photosNumber = state.cards.totalNumber / 2;
-    let number = state.gallery.currentImgNumber;
+    let number = state.gallery.activeIndicatorNumber;
 
     if (direction === 'next') number = number >= photosNumber ? 1 : (number + 1);
     else number = number === 1 ? photosNumber : (number - 1);
 
     setIndicator(number);
     galleryImage.src = `./assets/img/${number}.jpg`;
-    state.gallery.currentImgNumber = number;
+}
+
+
+function setupIndicator(indicator) {
+    const regex = /\d+/g;
+    const number = parseInt(indicator.id.match(regex)[0]);
+
+    indicator.addEventListener('click', () => {
+        galleryImage.src = `./assets/img/${number}.jpg`;
+        setIndicator(number);
+    });
 }
 
 
@@ -36,11 +46,7 @@ function createImageIndicator(number) {
     const indicator = document.createElement('li');
     indicator.classList.add('gallery__indicator');
     indicator.id = `indicator-${number}`;
-
-    indicator.addEventListener('click', () => {
-        galleryImage.src = `./assets/img/${number}.jpg`;
-        state.gallery.currentImgIndex = number;
-    });
+    setupIndicator(indicator);
 
     const indicatorsList = document.querySelector('.gallery__indicators-list');
     indicatorsList.append(indicator);
@@ -48,33 +54,24 @@ function createImageIndicator(number) {
 
 
 function setIndicator(number) {
-    const activeIndicator = document.getElementById(`indicator-${state.activeIndicator}`);
-    activeIndicator && activeIndicator.classList.remove('gallery__indicator_active');
-
+    const activeIndicator = document.getElementById(`indicator-${state.gallery.activeIndicatorNumber}`);
     const newActiveIndicator = document.getElementById(`indicator-${number}`);
+
+    activeIndicator && activeIndicator.classList.remove('gallery__indicator_active');
     newActiveIndicator.classList.add('gallery__indicator_active');
-    state.activeIndicator = number;
+    state.gallery.activeIndicatorNumber = number;
 }
 
 function setupGallery() {
     const galleryBtnClose = document.querySelector('.gallery__button_close');
     const galleryBtnPrevious = document.querySelector('.gallery__button_previous');
     const galleryBtnNext = document.querySelector('.gallery__button_next');
+    const indicators = document.querySelectorAll('.gallery__indicator');
+
     galleryBtnClose.addEventListener('click', closeGallery);
     galleryBtnPrevious.addEventListener('click', () => flipThrough('previous'));
     galleryBtnNext.addEventListener('click', () => flipThrough('next'));
-
-    const indicators = document.querySelectorAll('.gallery__indicator');
-    indicators.forEach(indicator => {
-        indicator.addEventListener('click', () => {
-            const regex = /\d+/g;
-            const number = indicator.id.match(regex)[0];
-
-            galleryImage.src = `./assets/img/${number}.jpg`;
-            state.gallery.currentImgIndex = number;
-            setIndicator(number);
-        });
-    });
+    indicators.forEach(indicator => setupIndicator(indicator));
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') flipThrough('previous');

@@ -24,8 +24,7 @@ const state = {
     },
 
     gallery: {
-        activeIndicator: 1,
-        currentImgNumber: 1,
+        activeIndicatorNumber: 1,
     }
 }
 
