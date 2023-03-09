@@ -1,6 +1,7 @@
 import state, { startGame } from '../state.js';
 import { openGallery } from '../gallery/gallery.js';
 import { closeMenu } from '../menu/menu.js';
+import { changeLevel } from '../cards/cards.js';
 
 const messageContainer = document.querySelector('.message__container');
 const messageText = document.querySelector('.message__text');
@@ -81,8 +82,14 @@ function closeAndStart() {
 
 const messageBtnStart = document.querySelector('.message__btn_start');
 const messageBtnRetry = document.querySelector('.message__btn_retry');
+const messageBtnNextLevel = document.querySelector('.message__btn_level-next');
+
 messageBtnStart.addEventListener('click', closeAndStart);
 messageBtnRetry.addEventListener('click', closeAndStart);
+messageBtnNextLevel.addEventListener('click', () => {
+    changeLevel();
+    closeAndStart();
+});
 
 
 export {
