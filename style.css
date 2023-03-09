@@ -20,8 +20,7 @@
     --purple-dark: #491064;
     --purple-light: #dd9aff;
     --transparent-white: #fffb;
-    --transparent-dark: #0009;
-    --transparent-dark-2: #000000ba;
+    --transparent-dark: #000b;
 
     /* gradients */
     --gradient-gray: linear-gradient(45deg, var(--gray-dark), var(--gray));

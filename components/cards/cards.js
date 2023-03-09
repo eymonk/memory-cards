@@ -17,6 +17,19 @@ function shuffleArray(array) {
 }
 
 
+function setupCard(card) {
+    card.addEventListener('click', () => {
+        closeMenu();
+        if (state.allowGame && !card.classList.contains('visible')) openCard(card);
+        else if(!state.allowGame && state.cards.openedNumber >= state.cards.totalNumber) {
+            const cardImgSrc = card.querySelector('img').src;
+            const regEx = /\d+(?=\.(jpg|png))/g;
+            const number = cardImgSrc.match(regEx)[0];
+            openGallery(parseInt(number));
+        }
+    });
+}
+
 function createCardElement(cardNumber) {
     const card = document.createElement('div');
     card.classList.add('card', 'main__card');
@@ -26,6 +39,7 @@ function createCardElement(cardNumber) {
         '<div class="card__back">' +
         '   <img class="card__img" src="" alt="card image">' +
         '</div>';
+    setupCard(card);
 
     return card;
 }
@@ -51,7 +65,7 @@ function setupImages() {
 }
 
 
-function createImageSources() {
+function addImages() {
     state.imagesSources.original = [];
     state.imagesSources.compressed = [];
 
@@ -123,21 +137,9 @@ function openCard(card) {
 
 
 function setupCards() {
-    createImageSources();
-
+    addImages();
     const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            closeMenu();
-            if (state.allowGame && !card.classList.contains('visible')) openCard(card);
-            else if(!state.allowGame && state.cards.openedNumber >= state.cards.totalNumber) {
-                const cardImgSrc = card.querySelector('img').src;
-                const regEx = /\d+(?=\.(jpg|png))/g;
-                const number = cardImgSrc.match(regEx)[0];
-                openGallery(parseInt(number));
-            }
-        });
-    });
+    cards.forEach(card => setupCard(card));
 }
 
 
@@ -164,8 +166,8 @@ function changeGrid(number) {
 
 function changeLevel(levelNumber = (state.level + 1)) {
     setLevelState(levelNumber);
+    addImages();
     changeGrid(levelNumber);
-    setupCards();
     startGame();
 }
 
