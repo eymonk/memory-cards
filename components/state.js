@@ -20,7 +20,7 @@ const state = {
 
     time: {
         timer: null,
-        levelTime: 10,
+        levelTime: 8,
     },
 
     gallery: {
@@ -44,6 +44,33 @@ function startGame() {
     setLevelTimer();
 }
 
+function setLevelState(levelNumber) {
+    state.level = levelNumber;
+
+    switch(levelNumber) {
+        case 2:
+            state.cards.totalNumber = 10;
+            state.time.levelTime = 10;
+            break;
+        case 3:
+            state.cards.totalNumber = 12;
+            state.time.levelTime = 14;
+            break;
+        case 4:
+            state.cards.totalNumber = 16;
+            state.time.levelTime = 24;
+            break;
+        case 5:
+            state.cards.totalNumber = 20;
+            state.time.levelTime = 30;
+            break;
+        default:
+            state.cards.totalNumber = 8;
+            state.time.levelTime = 8;
+    }
+}
+
 export default state;
+export { setLevelState };
 
 export { startGame };
