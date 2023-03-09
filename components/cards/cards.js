@@ -131,8 +131,31 @@ function setupCards() {
 }
 
 
+function changeGrid(number) {
+    const cardsGrid = document.querySelector('.main__wrapper_cards');
+    cardsGrid.className = 'main__wrapper main__wrapper_cards';
+    console.log('CHANGING GRID', number);
+
+    switch(number) {
+        case 2:
+            cardsGrid.classList.add('grid-5-2');
+            break;
+        case 3:
+            cardsGrid.classList.add('grid-4-3');
+            break;
+        case 4:
+            cardsGrid.classList.add('grid-4-4');
+            break;
+        case 5:
+            cardsGrid.classList.add('grid-5-4');
+            break;
+    }
+}
+
+
 function changeLevel(levelNumber) {
     setLevelState(levelNumber);
+    changeGrid(levelNumber);
     setupCards();
     startGame();
 }
