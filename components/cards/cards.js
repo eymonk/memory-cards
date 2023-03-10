@@ -4,8 +4,7 @@ import { showLevelMessage } from '../message/message.js';
 import { saveProgress } from '../progress.js';
 import {
     closeMenu,
-    showMenuBtnGallery,
-    showMenuBtnNextLevel
+    showMenuBtn,
 } from '../menu/menu.js';
 
 function shuffleArray(array) {
@@ -58,7 +57,7 @@ function setupImages() {
         while(number++ < state.cards.totalNumber) {
             cardsContainer.append(createCardElement(number));
             if (!(number % 2)) createImageIndicator(nextGalleryIndicatorNumber++);
-        };
+        }
     }
 
     imgElements.forEach((img, ind) => img.setAttribute('src', state.imagesSources.compressed[ind]));
@@ -75,6 +74,7 @@ function addImages() {
         state.imagesSources.compressed.push(`../assets/img/compressed/${i + 1}.jpg`);
         state.imagesSources.compressed.push(`../assets/img/compressed/${i + 1}.jpg`);
     }
+
     setupImages();
 }
 
@@ -123,8 +123,8 @@ function checkOpenedCard(card) {
         state.allowGame = false;
         clearInterval(state.time.timer);
         showLevelMessage();
-        showMenuBtnNextLevel();
-        showMenuBtnGallery();
+        showMenuBtn('next-level');
+        showMenuBtn('gallery');
         addCardsHoverEffect();
         saveProgress(state.level + 1);
     }

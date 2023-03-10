@@ -1,6 +1,6 @@
 import { closeAllCards, setupImages } from './cards/cards.js';
 import { setLevelTimer } from './level-time.js';
-import { hideMenuBtnGallery, hideMenuBtnNextLevel } from './menu/menu.js';
+import { hideMenuBtn } from './menu/menu.js';
 
 const state = {
     allowGame: true,
@@ -36,8 +36,8 @@ function resetState() {
 }
 
 function startGame() {
-    hideMenuBtnNextLevel();
-    hideMenuBtnGallery()
+    hideMenuBtn('next-level');
+    hideMenuBtn('gallery');
     closeAllCards();
     resetState();
     setupImages();
@@ -51,15 +51,15 @@ function setLevelState(levelNumber) {
     switch(levelNumber) {
         case 2:
             state.cards.totalNumber = 10;
-            state.time.levelTime = 10;
+            state.time.levelTime = 11;
             break;
         case 3:
             state.cards.totalNumber = 12;
-            state.time.levelTime = 14;
+            state.time.levelTime = 15;
             break;
         case 4:
             state.cards.totalNumber = 16;
-            state.time.levelTime = 24;
+            state.time.levelTime = 22;
             break;
         case 5:
             state.cards.totalNumber = 20;

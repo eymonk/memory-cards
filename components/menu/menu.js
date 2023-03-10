@@ -1,10 +1,12 @@
 import { startGame } from '../state.js';
 import { openGallery } from '../gallery/gallery.js';
 import { changeLevel } from '../cards/cards.js';
+import { resetProgress } from '../progress.js';
 
 const menu = document.querySelector('.menu');
 const galleryBtn = document.querySelector('.menu__btn_gallery');
-const nextLevelBtn = document.querySelector('.menu__btn_next-level')
+const nextLevelBtn = document.querySelector('.menu__btn_next-level');
+const resetProgressBtn = document.querySelector('.menu__btn_reset-progress');
 
 function toggleMenu() {
     const messageContainer = document.querySelector('.message__container');
@@ -15,27 +17,39 @@ function closeMenu() {
     menu.classList.add('hidden');
 }
 
-function showMenuBtnNextLevel() {
-    nextLevelBtn.classList.remove('hidden');
+function chooseBtn(btnName) {
+    let btn;
+
+    switch(btnName) {
+        case 'next-level':
+            btn = nextLevelBtn;
+            break;
+        case 'gallery':
+            btn = galleryBtn;
+            break;
+        default:
+            btn = resetProgressBtn;
+    }
+
+    return btn;
 }
 
-function hideMenuBtnNextLevel() {
-    nextLevelBtn.classList.add('hidden');
+
+function showMenuBtn(btnName) {
+    const btn = chooseBtn(btnName);
+    btn.classList.remove('hidden');
 }
 
-function showMenuBtnGallery() {
-    galleryBtn.classList.remove('hidden');
-}
 
-function hideMenuBtnGallery() {
-    galleryBtn.classList.add('hidden');
+function hideMenuBtn(btnName) {
+    const btn = chooseBtn(btnName);
+    btn.classList.add('hidden');
 }
 
 
 
 function setupMenu() {
     const menuBtn = document.querySelector('.header__btn_menu');
-    const nextLevelBtn = document.querySelector('.menu__btn_next-level');
     const retryBtn = document.querySelector('.menu__btn_retry');
     const closeBtn = document.querySelector('.menu__btn_close');
 
@@ -53,14 +67,12 @@ function setupMenu() {
         closeMenu();
         openGallery();
     });
-
+    resetProgressBtn.addEventListener('click', resetProgress);
 }
 
 export {
     setupMenu,
     closeMenu,
-    showMenuBtnNextLevel,
-    hideMenuBtnNextLevel,
-    showMenuBtnGallery,
-    hideMenuBtnGallery,
+    showMenuBtn,
+    hideMenuBtn,
 };
