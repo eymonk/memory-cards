@@ -1,10 +1,10 @@
+import { createImageIndicator, openGallery} from '../gallery/gallery.js';
 import state, {setLevelState, startGame} from '../state.js';
 import { showLevelMessage } from '../message/message.js';
-import { createImageIndicator, openGallery} from '../gallery/gallery.js';
+import { saveProgress } from '../progress.js';
 import {
     closeMenu,
-    showMenuBtnGallery,
-    showMenuBtnNextLevel
+    showMenuBtn,
 } from '../menu/menu.js';
 
 function shuffleArray(array) {
@@ -44,6 +44,13 @@ function createCardElement(cardNumber) {
     return card;
 }
 
+function deleteExcessCards() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, index) => {
+        if ((index + 1) > state.cards.totalNumber) card.remove();
+    });
+}
+
 
 function setupImages() {
     shuffleArray(state.imagesSources.compressed);
@@ -57,7 +64,7 @@ function setupImages() {
         while(number++ < state.cards.totalNumber) {
             cardsContainer.append(createCardElement(number));
             if (!(number % 2)) createImageIndicator(nextGalleryIndicatorNumber++);
-        };
+        }
     }
 
     imgElements.forEach((img, ind) => img.setAttribute('src', state.imagesSources.compressed[ind]));
@@ -74,6 +81,7 @@ function addImages() {
         state.imagesSources.compressed.push(`../assets/img/compressed/${i + 1}.jpg`);
         state.imagesSources.compressed.push(`../assets/img/compressed/${i + 1}.jpg`);
     }
+
     setupImages();
 }
 
@@ -122,9 +130,10 @@ function checkOpenedCard(card) {
         state.allowGame = false;
         clearInterval(state.time.timer);
         showLevelMessage();
-        showMenuBtnNextLevel();
-        showMenuBtnGallery();
+        showMenuBtn('next-level');
+        showMenuBtn('gallery');
         addCardsHoverEffect();
+        saveProgress(state.level + 1);
     }
 }
 
@@ -146,6 +155,7 @@ function setupCards() {
 function changeGrid(number) {
     const cardsGrid = document.querySelector('.main__wrapper_cards');
     cardsGrid.className = 'main__wrapper main__wrapper_cards';
+    number = parseInt(number);
 
     switch(number) {
         case 2:
@@ -160,6 +170,8 @@ function changeGrid(number) {
         case 5:
             cardsGrid.classList.add('grid-5-4');
             break;
+        default:
+            cardsGrid.classList.add('grid-4-2');
     }
 }
 
@@ -167,8 +179,9 @@ function changeGrid(number) {
 function changeLevel(levelNumber = (state.level + 1)) {
     const levelLabel = document.querySelector('.header__value_level');
     levelLabel.textContent = `${levelNumber}`;
-    
+
     setLevelState(levelNumber);
+    deleteExcessCards();
     addImages();
     changeGrid(levelNumber);
     startGame();

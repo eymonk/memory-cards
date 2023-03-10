@@ -1,5 +1,5 @@
-import state from '../state.js';
-import { showMessage } from '../message/message.js';
+import state from './state.js';
+import { showMessage } from './message/message.js';
 
 function setLevelTimer() {
     clearInterval(state.time.timer);
