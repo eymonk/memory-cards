@@ -1,6 +1,7 @@
+import { createImageIndicator, openGallery} from '../gallery/gallery.js';
 import state, {setLevelState, startGame} from '../state.js';
 import { showLevelMessage } from '../message/message.js';
-import { createImageIndicator, openGallery} from '../gallery/gallery.js';
+import { saveProgress } from '../progress.js';
 import {
     closeMenu,
     showMenuBtnGallery,
@@ -125,6 +126,7 @@ function checkOpenedCard(card) {
         showMenuBtnNextLevel();
         showMenuBtnGallery();
         addCardsHoverEffect();
+        saveProgress(state.level + 1);
     }
 }
 
@@ -146,6 +148,7 @@ function setupCards() {
 function changeGrid(number) {
     const cardsGrid = document.querySelector('.main__wrapper_cards');
     cardsGrid.className = 'main__wrapper main__wrapper_cards';
+    number = parseInt(number);
 
     switch(number) {
         case 2:
@@ -160,6 +163,8 @@ function changeGrid(number) {
         case 5:
             cardsGrid.classList.add('grid-5-4');
             break;
+        default:
+            cardsGrid.classList.add('grid-4-2');
     }
 }
 

@@ -1,5 +1,5 @@
 import { closeAllCards, setupImages } from './cards/cards.js';
-import { setLevelTimer } from './level-time/level-time.js';
+import { setLevelTimer } from './level-time.js';
 import { hideMenuBtnGallery, hideMenuBtnNextLevel } from './menu/menu.js';
 
 const state = {
@@ -45,6 +45,7 @@ function startGame() {
 }
 
 function setLevelState(levelNumber) {
+    levelNumber = parseInt(levelNumber);
     state.level = levelNumber;
 
     switch(levelNumber) {
