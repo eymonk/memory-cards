@@ -18,6 +18,15 @@ function closeGallery() {
     gallery.style.display = 'none';
 }
 
+function deleteExcessImages() {
+    const number = state.cards.totalNumber / 2;
+    const indicators = [...document.querySelectorAll('.gallery__indicator')];
+
+    if (indicators.length > number) {
+        for (let i = indicators.length; i > number; i--) indicators[i-1].remove();
+    }
+}
+
 
 function flipThrough(direction) {
     const photosNumber = state.cards.totalNumber / 2;
@@ -84,5 +93,6 @@ function setupGallery() {
 export {
     openGallery,
     setupGallery,
-    createImageIndicator
+    createImageIndicator,
+    deleteExcessImages,
 };

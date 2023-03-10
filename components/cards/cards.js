@@ -1,4 +1,3 @@
-import { createImageIndicator, openGallery} from '../gallery/gallery.js';
 import state, {setLevelState, startGame} from '../state.js';
 import { showLevelMessage } from '../message/message.js';
 import { saveProgress } from '../progress.js';
@@ -6,6 +5,12 @@ import {
     closeMenu,
     showMenuBtn,
 } from '../menu/menu.js';
+import {
+    createImageIndicator,
+    deleteExcessImages,
+    openGallery
+} from '../gallery/gallery.js';
+
 
 function shuffleArray(array) {
     let randomIndex, currentIndex = array.length;
@@ -49,6 +54,7 @@ function deleteExcessCards() {
     cards.forEach((card, index) => {
         if ((index + 1) > state.cards.totalNumber) card.remove();
     });
+    deleteExcessImages();
 }
 
 
