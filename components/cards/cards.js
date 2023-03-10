@@ -44,6 +44,13 @@ function createCardElement(cardNumber) {
     return card;
 }
 
+function deleteExcessCards() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, index) => {
+        if ((index + 1) > state.cards.totalNumber) card.remove();
+    });
+}
+
 
 function setupImages() {
     shuffleArray(state.imagesSources.compressed);
@@ -172,8 +179,9 @@ function changeGrid(number) {
 function changeLevel(levelNumber = (state.level + 1)) {
     const levelLabel = document.querySelector('.header__value_level');
     levelLabel.textContent = `${levelNumber}`;
-    
+
     setLevelState(levelNumber);
+    deleteExcessCards();
     addImages();
     changeGrid(levelNumber);
     startGame();
