@@ -20,7 +20,7 @@ function showMessage(text, title = 'System message', type) {
 
     switch(type) {
         case 'level-next':
-            messageControlsLevelNext.classList.remove('hidden');
+            if (state.level !== 5) messageControlsLevelNext.classList.remove('hidden');
             messageControlsClose.classList.remove('hidden');
             break;
         case 'level-stop':
@@ -52,11 +52,19 @@ function showLevelMessage() {
             break;
         case 2:
             title = 'Well done!';
-            text = 'It was a bit harder, but still pretty easy!😉 Now take some rest watching these exciting photos and then go to the next level!';
+            text = 'It was a bit harder, but still pretty easy!😉 <br><br> Now take some rest watching these exciting photos and then go to the next level!';
             break;
         case 3:
             title = 'Excellent!';
-            text = 'Now I see that you have a pretty sharp mind! 😎C O O L😎';
+            text = 'Now I see that you have a pretty sharp mind! <br><br> 😎C O O L😎';
+            break;
+        case 4:
+            title = 'WOW!!!'
+            text = 'Only 1 level left to win the whole game! <br><br> 😮😮😮';
+            break;
+        case 5:
+            title = 'UNBELIEVABLE ❗❕❗'
+            text = `You proved to be a real MIND! <br> I'm truly astonished! 😲 <br><br> Thanks for your time. I hope you liked the game! Well, at least it trained your cognitive skills a little bit😊 <br><br> Good luck!`;
             break;
         default:
             title = 'Great!';

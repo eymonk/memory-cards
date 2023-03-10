@@ -63,7 +63,7 @@ function setLevelState(levelNumber) {
             break;
         case 5:
             state.cards.totalNumber = 20;
-            state.time.levelTime = 30;
+            state.time.levelTime = 33;
             break;
         default:
             state.cards.totalNumber = 8;

@@ -136,10 +136,12 @@ function checkOpenedCard(card) {
         state.allowGame = false;
         clearInterval(state.time.timer);
         showLevelMessage();
-        showMenuBtn('next-level');
+        if (state.level < 5) {
+            showMenuBtn('next-level');
+            saveProgress(state.level + 1);
+        };
         showMenuBtn('gallery');
         addCardsHoverEffect();
-        saveProgress(state.level + 1);
     }
 }
 
@@ -183,14 +185,16 @@ function changeGrid(number) {
 
 
 function changeLevel(levelNumber = (state.level + 1)) {
-    const levelLabel = document.querySelector('.header__value_level');
-    levelLabel.textContent = `${levelNumber}`;
+    if (levelNumber < 6) {
+        const levelLabel = document.querySelector('.header__value_level');
+        levelLabel.textContent = `${levelNumber}`;
 
-    setLevelState(levelNumber);
-    deleteExcessCards();
-    addImages();
-    changeGrid(levelNumber);
-    startGame();
+        setLevelState(levelNumber);
+        deleteExcessCards();
+        addImages();
+        changeGrid(levelNumber);
+        startGame();
+    }
 }
 
 
