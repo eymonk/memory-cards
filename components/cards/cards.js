@@ -139,7 +139,7 @@ function checkOpenedCard(card) {
         if (state.level < 5) {
             showMenuBtn('next-level');
             saveProgress(state.level + 1);
-        };
+        }
         showMenuBtn('gallery');
         addCardsHoverEffect();
     }

@@ -2,7 +2,7 @@ import state, { startGame } from '../state.js';
 import { openGallery } from '../gallery/gallery.js';
 import { closeMenu } from '../menu/menu.js';
 import { changeLevel } from '../cards/cards.js';
-import changeLanguage from '../languages.js';
+import changeLanguage from '../languages/languages.js';
 
 const messageContainer = document.querySelector('.message__container');
 const messageControlsStart = document.querySelector('.message__controls_start');
@@ -111,8 +111,8 @@ messageBtnStart.addEventListener('click', () => {
 const messageBtnClose = document.querySelector('.message__btn_close');
 messageBtnClose.addEventListener('click', closeMessage);
 
-const messageBtnShowPhotos = document.querySelector('.message__btn_show-photos');
-messageBtnShowPhotos.addEventListener('click', () => {
+const messageBtnOpenGallery = document.querySelector('.message__btn_open-gallery');
+messageBtnOpenGallery.addEventListener('click', () => {
     closeMessage();
     openGallery();
 });

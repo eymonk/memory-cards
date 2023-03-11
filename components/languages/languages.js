@@ -1,15 +1,6 @@
-import state from './state.js';
+import state from '../state.js';
+import nodesToTranslate from './nodes.js';
 
-const nodesToTranslate = [];
-
-function addNodeToTranslate(nodeClassName, en, ru) {
-    const newNode = {
-        nodeClassName,
-        en,
-        ru
-    }
-    nodesToTranslate.push(newNode);
-}
 
 function changeLanguage() {
     state.language = state.language === 'en' ? 'ru' : 'en';
