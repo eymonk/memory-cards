@@ -46,7 +46,7 @@
     width: 50px;
 }
 
-.header__wrapper_level-info {
+.header__wrapper {
     gap: var(--gap-medium);
 }
 

@@ -5,6 +5,7 @@ import { hideMenuBtn } from './menu/menu.js';
 const state = {
     allowGame: true,
     level: 1,
+    language: 'en',
 
     imagesSources: {
         original: [],
