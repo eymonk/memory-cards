@@ -1,6 +1,12 @@
 import state from './state.js';
 import { showMessage } from './message/message.js';
 
+function showStopMessage() {
+    if (state.language === 'en') showMessage('No time left... Try once more😉', 'Oops!', 'level-stop');
+    else showMessage('Не осталось времени... Попробуй ещё раз😉', 'Упс!', 'level-stop');
+}
+
+
 function setLevelTimer() {
     clearInterval(state.time.timer);
 
@@ -14,7 +20,7 @@ function setLevelTimer() {
         if (timeLeft <= 0) {
             clearInterval(state.time.timer);
             state.allowGame = false;
-            showMessage('No time left... Try once more😉', 'Oops!', 'level-stop');
+            showStopMessage();
         }
     }, 1000);
 }
