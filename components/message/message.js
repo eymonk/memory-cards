@@ -3,7 +3,7 @@ import { openGallery } from '../gallery/gallery.js';
 import { closeMenu } from '../menu/menu.js';
 import { changeLevel } from '../cards/cards.js';
 import changeLanguage from '../languages/languages.js';
-import { levelMessagesRU, levelMessagesEN } from './level-message.js';
+import { levelMessagesRU, levelMessagesEN } from './level-messages.js';
 
 const messageContainer = document.querySelector('.message__container');
 const messageControlsStart = document.querySelector('.message__controls_start');

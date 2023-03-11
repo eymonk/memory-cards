@@ -2,20 +2,33 @@ import { startGame } from '../state.js';
 import { openGallery } from '../gallery/gallery.js';
 import { changeLevel } from '../cards/cards.js';
 import { resetProgress } from '../progress.js';
-
-const menu = document.querySelector('.menu');
-const galleryBtn = document.querySelector('.menu__btn_gallery');
-const nextLevelBtn = document.querySelector('.menu__btn_next-level');
-const resetProgressBtn = document.querySelector('.menu__btn_reset-progress');
+import changeLanguage from '../languages/languages.js';
 
 function toggleMenu() {
+    const menu = document.querySelector('.menu');
     const messageContainer = document.querySelector('.message__container');
     if (messageContainer.classList.contains('hidden')) menu.classList.toggle('hidden');
 }
 
 function closeMenu() {
+    const menu = document.querySelector('.menu');
     menu.classList.add('hidden');
 }
+
+function showMenuBtn(btnName) {
+    const btn = chooseBtn(btnName);
+    btn.classList.remove('hidden');
+}
+
+function hideMenuBtn(btnName) {
+    const btn = chooseBtn(btnName);
+    btn.classList.add('hidden');
+}
+
+
+const galleryBtn = document.querySelector('.menu__btn_gallery');
+const nextLevelBtn = document.querySelector('.menu__btn_next-level');
+const resetProgressBtn = document.querySelector('.menu__btn_reset-progress');
 
 function chooseBtn(btnName) {
     let btn;
@@ -35,38 +48,32 @@ function chooseBtn(btnName) {
 }
 
 
-function showMenuBtn(btnName) {
-    const btn = chooseBtn(btnName);
-    btn.classList.remove('hidden');
-}
-
-
-function hideMenuBtn(btnName) {
-    const btn = chooseBtn(btnName);
-    btn.classList.add('hidden');
-}
-
-
-
 function setupMenu() {
     const menuBtn = document.querySelector('.header__btn_menu');
-    const retryBtn = document.querySelector('.menu__btn_retry');
-    const closeBtn = document.querySelector('.menu__btn_close');
-
     menuBtn.addEventListener('click', toggleMenu);
+
+    const closeBtn = document.querySelector('.menu__btn_close');
     closeBtn.addEventListener('click', closeMenu);
-    nextLevelBtn.addEventListener('click', () => {
-        closeMenu();
-        changeLevel();
-    });
+
+    const languageBtn = document.querySelector('.menu__btn_languages');
+    languageBtn.addEventListener('click', changeLanguage);
+
+    const retryBtn = document.querySelector('.menu__btn_retry');
     retryBtn.addEventListener('click', () => {
         closeMenu();
         startGame();
     })
+
+    nextLevelBtn.addEventListener('click', () => {
+        closeMenu();
+        changeLevel();
+    });
+
     galleryBtn.addEventListener('click', () => {
         closeMenu();
         openGallery();
     });
+
     resetProgressBtn.addEventListener('click', resetProgress);
 }
 
