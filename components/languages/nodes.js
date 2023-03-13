@@ -13,7 +13,7 @@ function addNodeToTranslate(nodeClassName, en, ru) {
 addNodeToTranslate('header__title', 'Memory Cards', 'Карты памяти');
 addNodeToTranslate('header__label-text_level', 'level', 'уровень');
 addNodeToTranslate('header__label-text_time', 'time', 'время');
-addNodeToTranslate('header__btn_menu', 'menu', 'меню');
+addNodeToTranslate('menu-btn-text', 'menu', 'меню');
 addNodeToTranslate('menu__btn_next-level', 'next level', 'следующий уровень');
 addNodeToTranslate('menu__btn_retry', 'retry', 'начать заново');
 addNodeToTranslate('menu__btn_gallery', 'gallery', 'галерея');
