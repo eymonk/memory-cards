@@ -12,6 +12,7 @@
     width: 100%;
     display: grid;
     gap: var(--gap-medium);
+    justify-items: center;
 }
 
 .card {
@@ -103,4 +104,25 @@
     max-width: 1160px;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 1fr);
+}
+
+
+/* media queries */
+@media screen and (max-width: 900px) {
+    .main {
+        padding: var(--gap-large) var(--gap-medium);
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .grid-4-2 {
+        max-width: 370px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .card {
+        max-width: 170px;
+        height: 210px;
+    }
 }

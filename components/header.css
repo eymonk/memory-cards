@@ -88,12 +88,18 @@
 }
 
 @media screen and (max-width: 450px) {
+    .header__label {
+        font-size: 18px;
+    }
+
     .btn.header__btn_menu {
         padding: 0 0 0 18px;
     }
+
     .menu-btn-text {
         display: none;
     }
+
     .menu-btn-icon {
         display: block;
     }
