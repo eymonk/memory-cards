@@ -1,4 +1,4 @@
-@import './css/header.css';
+@import 'components/header.css';
 @import './components/menu/menu.css';
 @import './components/cards/cards.css';
 @import './components/message/message.css';
@@ -75,6 +75,11 @@ body {
 }
 .btn:hover {
     border-color: var(--white) ;
+}
+
+.icon {
+    width: 30px;
+    padding: 0 var(--gap-small-extra);
 }
 
 .hidden {

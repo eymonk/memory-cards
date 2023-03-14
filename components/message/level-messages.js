@@ -17,8 +17,8 @@ addLevelMessage('ru', 'Теперь выбери что делать дальш�
 addLevelMessage('en','It was a bit harder, but still pretty easy!😉 <br><br> Opportunities are the same - you can go to the next level, or to see photos at first!', 'Well done!');
 addLevelMessage('ru', 'Было чуть посложнее, но всё ещё довольно легко!😉 <br><br> Возможности те же - можешь пойти на следующий уровень, а можешь сначала посмотреть фотографии.', 'Исполнено отлично!');
 
-addLevelMessage('en', 'Now I see that you have a pretty sharp mind! <br><br> 😎C O O L😎', 'Excellent!');
-addLevelMessage('ru', '', '');
+addLevelMessage('en', 'It seems that you have a pretty sharp mind! <br><br> 😎C O O L😎', 'Excellent!');
+addLevelMessage('ru', 'Кажется у тебя довольно острый ум!!! <br><br> 😎К Р У Т О😎', 'Восхитительно!');
 
 addLevelMessage('en', 'Only 1 level left to win the whole game! <br><br> 😮😮😮', 'WOW!!!');
 addLevelMessage('ru', 'Всего лишь 1 уровень остался, чтобы пройти всю игру! <br><br> 😮😮😮', 'УОУ!!!');

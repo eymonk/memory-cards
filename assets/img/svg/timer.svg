@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 0 1024 1024"
+   fill="#ffffff"
+   stroke="#ffffff"
+   version="1.1"
+   id="svg206"
+   sodipodi:docname="timer.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs210" />
+  <sodipodi:namedview
+     id="namedview208"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.015"
+     inkscape:cx="399.50739"
+     inkscape:cy="400"
+     inkscape:window-width="1858"
+     inkscape:window-height="1057"
+     inkscape:window-x="54"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg206" />
+  <g
+     id="SVGRepo_bgCarrier"
+     stroke-width="0" />
+  <g
+     id="SVGRepo_tracerCarrier"
+     stroke-linecap="round"
+     stroke-linejoin="round" />
+  <g
+     id="SVGRepo_iconCarrier"
+     style="fill:#ffffff"
+     transform="matrix(1.1738569,0,0,1.1321307,-89.014751,-67.650897)">
+    <path
+       fill="#000000"
+       d="m 512,896 a 320,320 0 1 0 0,-640 320,320 0 0 0 0,640 z m 0,64 a 384,384 0 1 1 0,-768 384,384 0 0 1 0,768 z"
+       id="path199"
+       style="fill:#ffffff" />
+    <path
+       fill="#000000"
+       d="m 512,320 a 32,32 0 0 1 32,32 l -0.512,224 a 32,32 0 1 1 -64,0 L 480,352 a 32,32 0 0 1 32,-32 z"
+       id="path201"
+       style="fill:#ffffff" />
+    <path
+       fill="#000000"
+       d="m 448,576 a 64,64 0 1 0 128,0 64,64 0 1 0 -128,0 z M 544,128 V 256 H 480 V 128 h -96 a 32,32 0 0 1 0,-64 h 256 a 32,32 0 1 1 0,64 z"
+       id="path203"
+       style="fill:#ffffff" />
+  </g>
+</svg>

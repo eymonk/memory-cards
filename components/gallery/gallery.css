@@ -31,6 +31,7 @@
 
 	background: transparent;
 	color: var(--white);
+	text-shadow: 0 0 2px var(--black);
 	cursor: pointer;
 	transition: color var(--transition-fast);
 }
@@ -110,3 +111,43 @@
 .gallery__indicator_active {
 	background-color: var(--purple);
 }
+
+
+@media screen and (max-width: 800px) {
+	.gallery__button_previous,
+	.gallery__button_next {
+		width: 20%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.gallery__button {
+		font-size: 3rem;
+	}
+	.gallery__button_previous,
+	.gallery__button_next {
+		width: 20%;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.gallery__button_close {
+		position: relative;
+		z-index: 101;
+		height: 15%;
+	}
+	.gallery__button_previous,
+	.gallery__button_next {
+		width: 25%;
+	}
+
+	.gallery__button_next {
+		justify-content: flex-end;
+		padding-right: var(--gap-medium);
+	}
+	.gallery__button_previous {
+		justify-content: flex-start;
+		padding-left: var(--gap-medium);
+	}
+}
+

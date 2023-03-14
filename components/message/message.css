@@ -48,3 +48,23 @@
     align-items: center;
     gap: var(--gap-medium);
 }
+
+@media screen and (max-width: 550px) {
+    .message {
+        padding: var(--gap-large-2) var(--gap-large);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .message {
+        width: 100%;
+        border-width: 4px;
+        border-left: none;
+        border-right: none;
+        padding: var(--gap-large);
+    }
+
+    .message__text {
+        font-size: 18px;
+    }
+}
