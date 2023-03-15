@@ -1,8 +1,9 @@
-import { startGame } from '../state.js';
+import state, { startGame } from '../state.js';
 import { openGallery } from '../gallery/gallery.js';
 import { changeLevel } from '../cards/cards.js';
 import { resetProgress } from '../progress.js';
 import changeLanguage from '../languages/languages.js';
+import { showMessage } from '../message/message.js';
 
 function toggleMenu() {
     const menu = document.querySelector('.menu');
@@ -75,6 +76,14 @@ function setupMenu() {
     });
 
     resetProgressBtn.addEventListener('click', resetProgress);
+
+    const contactsBtn = document.querySelector('.menu__btn_contacts');
+    contactsBtn.addEventListener('click', () => {
+        const title = state.language === 'en' ? 'Contacts' : 'Контакты';
+        const message = state.language === 'en' ? 'You are welcome!' : 'Добро пожаловать!';
+        closeMenu();
+        showMessage(message, title, 'contacts');
+    });
 }
 
 export {

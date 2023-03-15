@@ -16,6 +16,7 @@ addNodeToTranslate('header__label-text_time', 'time', 'время');
 addNodeToTranslate('menu-btn-text', 'menu', 'меню');
 addNodeToTranslate('menu__btn_next-level', 'next level', 'следующий уровень');
 addNodeToTranslate('menu__btn_retry', 'retry', 'начать заново');
+addNodeToTranslate('menu__btn_contacts', 'contacts', 'контакты');
 addNodeToTranslate('menu__btn_gallery', 'gallery', 'галерея');
 addNodeToTranslate('menu__btn_reset-progress', 'reset progress', 'сбросить прогресс');
 addNodeToTranslate('menu__btn_close', 'close menu', 'закрыть меню');

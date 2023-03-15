@@ -10,10 +10,21 @@ const messageControlsStart = document.querySelector('.message__controls_start');
 const messageControlsLanguages = document.querySelector('.message__controls_languages');
 const messageControlsLevelNext = document.querySelector('.message__controls_level-next');
 const messageControlsLevelStop = document.querySelector('.message__controls_level-stop');
+const messageControlsContacts = document.querySelector('.message__controls_contacts');
 const messageControlsClose = document.querySelector('.message__controls_close');
 
 
+function closeMessage() {
+    messageContainer.classList.add('hidden');
+    messageControlsLevelNext.classList.add('hidden');
+    messageControlsLevelStop.classList.add('hidden');
+    messageControlsContacts.classList.add('hidden');
+    messageControlsClose.classList.add('hidden');
+}
+
+
 function showMessage(text, title = 'System message', type) {
+    closeMessage();
     const messageText = document.querySelector('.message__text');
     const messageTitle = document.querySelector('.message__title');
 
@@ -37,16 +48,13 @@ function showMessage(text, title = 'System message', type) {
         case 'start':
             messageControlsStart.classList.remove('hidden');
             break;
+        case 'contacts':
+            messageControlsContacts.classList.remove('hidden');
+            messageControlsClose.classList.remove('hidden');
+            break;
         default:
             messageControlsClose.classList.remove('hidden');
     }
-}
-
-function closeMessage() {
-    messageContainer.classList.add('hidden');
-    messageControlsLevelNext.classList.add('hidden');
-    messageControlsLevelStop.classList.add('hidden');
-    messageControlsClose.classList.add('hidden');
 }
 
 function showLevelMessage() {
