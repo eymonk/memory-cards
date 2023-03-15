@@ -64,7 +64,15 @@ function showLevelMessage() {
     const messages = state.language === 'en' ? levelMessagesEN : levelMessagesRU;
     const message = messages[state.level - 1];
     showMessage(message.text, message.title, 'level-next');
-    if (state.level === 5) messageControlsContacts.classList.remove('hidden');
+
+    if (state.level === 5) {
+        const victorySound = document.getElementById('sound__victory');
+        victorySound.play();
+        messageControlsContacts.classList.remove('hidden');
+    } else {
+        const levelFinishSound = document.getElementById('sound__level-finish');
+        levelFinishSound.play();
+    }
 }
 
 
