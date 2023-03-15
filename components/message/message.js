@@ -5,6 +5,7 @@ import { changeLevel } from '../cards/cards.js';
 import changeLanguage from '../languages/languages.js';
 import { levelMessagesRU, levelMessagesEN } from './level-messages.js';
 
+
 const messageContainer = document.querySelector('.message__container');
 const messageControlsStart = document.querySelector('.message__controls_start');
 const messageControlsLanguages = document.querySelector('.message__controls_languages');
@@ -24,13 +25,12 @@ function closeMessage() {
 
 
 function showMessage(text, title, type) {
+    closeMenu();
+    closeMessage();
     if (!title) title = state.language === 'en' ? 'System message' : 'Системное сообщение';
 
-    closeMessage();
     const messageText = document.querySelector('.message__text');
     const messageTitle = document.querySelector('.message__title');
-
-    closeMenu();
     messageContainer.classList.remove('hidden');
     messageText.innerHTML = text;
     messageTitle.textContent = title;
@@ -58,6 +58,7 @@ function showMessage(text, title, type) {
             messageControlsClose.classList.remove('hidden');
     }
 }
+
 
 function showLevelMessage() {
     const messages = state.language === 'en' ? levelMessagesEN : levelMessagesRU;
@@ -97,6 +98,7 @@ messageBtnStart.addEventListener('click', () => {
 
 const messageBtnClose = document.querySelector('.message__btn_close');
 messageBtnClose.addEventListener('click', closeMessage);
+
 
 const messageBtnOpenGallery = document.querySelector('.message__btn_open-gallery');
 messageBtnOpenGallery.addEventListener('click', () => {

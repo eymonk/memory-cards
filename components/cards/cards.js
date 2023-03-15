@@ -1,15 +1,17 @@
 import state, {setLevelState, startGame} from '../state.js';
 import { showLevelMessage } from '../message/message.js';
 import { saveProgress } from '../progress.js';
-import {
-    closeMenu,
-    showMenuBtn,
-} from '../menu/menu.js';
+
 import {
     createImageIndicator,
     deleteExcessImages,
     openGallery
 } from '../gallery/gallery.js';
+
+import {
+    closeMenu,
+    showMenuBtn,
+} from '../menu/menu.js';
 
 
 function shuffleArray(array) {
@@ -60,8 +62,8 @@ function deleteExcessCards() {
 
 function setupImages() {
     shuffleArray(state.imagesSources.compressed);
-
     const imgElements = document.querySelectorAll('.card__img');
+
     if (imgElements.length < state.cards.totalNumber) {
         const cardsContainer = document.querySelector('.main__wrapper_cards');
         let number = imgElements.length;
@@ -115,6 +117,20 @@ function removeCardsHoverEffect() {
 }
 
 
+function checkLevelFinish() {
+    if (state.cards.openedNumber >= state.cards.totalNumber) {
+        state.allowGame = false;
+        clearInterval(state.time.timer);
+        showLevelMessage();
+        if (state.level < 5) {
+            showMenuBtn('next-level');
+            saveProgress(state.level + 1);
+        }
+        showMenuBtn('gallery');
+        addCardsHoverEffect();
+    }
+}
+
 function checkOpenedCard(card) {
     const cardImg = card.querySelector('img');
 
@@ -132,17 +148,7 @@ function checkOpenedCard(card) {
         state.cards.openedCard = card;
     }
 
-    if (state.cards.openedNumber >= state.cards.totalNumber) {
-        state.allowGame = false;
-        clearInterval(state.time.timer);
-        showLevelMessage();
-        if (state.level < 5) {
-            showMenuBtn('next-level');
-            saveProgress(state.level + 1);
-        }
-        showMenuBtn('gallery');
-        addCardsHoverEffect();
-    }
+    checkLevelFinish();
 }
 
 

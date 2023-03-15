@@ -2,6 +2,7 @@ import { closeAllCards, setupImages } from './cards/cards.js';
 import { setLevelTimer } from './level-time.js';
 import { hideMenuBtn } from './menu/menu.js';
 
+
 const state = {
     allowGame: true,
     level: 1,
@@ -29,12 +30,14 @@ const state = {
     }
 }
 
+
 function resetState() {
     state.allowGame = true;
     state.cards.openedNumber = 0;
     state.cards.openedCard = null
     state.cards.openedSrc = null;
 }
+
 
 function startGame() {
     hideMenuBtn('next-level');
@@ -44,6 +47,7 @@ function startGame() {
     setupImages();
     setLevelTimer();
 }
+
 
 function setLevelState(levelNumber) {
     levelNumber = parseInt(levelNumber);
@@ -72,7 +76,6 @@ function setLevelState(levelNumber) {
     }
 }
 
-export default state;
-export { setLevelState };
 
-export { startGame };
+export default state;
+export { startGame, setLevelState };

@@ -19,7 +19,7 @@ function resetProgress(){
         localStorage.clear();
         showMessage(message);
         changeLevel(1);
-    };
+    }
 }
 
 export {

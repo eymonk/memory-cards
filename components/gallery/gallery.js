@@ -71,28 +71,34 @@ function setIndicator(number) {
     state.gallery.activeIndicatorNumber = number;
 }
 
-function setupGallery() {
-    const galleryBtnClose = document.querySelector('.gallery__button_close');
-    const galleryBtnPrevious = document.querySelector('.gallery__button_previous');
-    const galleryBtnNext = document.querySelector('.gallery__button_next');
-    const indicators = document.querySelectorAll('.gallery__indicator');
 
-    galleryBtnClose.addEventListener('click', closeGallery);
-    galleryBtnPrevious.addEventListener('click', () => flipThrough('previous'));
-    galleryBtnNext.addEventListener('click', () => flipThrough('next'));
-    indicators.forEach(indicator => setupIndicator(indicator));
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') flipThrough('previous');
-        else if (e.key === 'ArrowRight') flipThrough('next');
-        else if (e.key === 'Escape') closeGallery();
-    });
-}
+
+const galleryBtnClose = document.querySelector('.gallery__button_close');
+galleryBtnClose.addEventListener('click', closeGallery);
+
+
+const galleryBtnPrevious = document.querySelector('.gallery__button_previous');
+galleryBtnPrevious.addEventListener('click', () => flipThrough('previous'));
+
+
+const galleryBtnNext = document.querySelector('.gallery__button_next');
+galleryBtnNext.addEventListener('click', () => flipThrough('next'));
+
+
+const indicators = document.querySelectorAll('.gallery__indicator');
+indicators.forEach(indicator => setupIndicator(indicator));
+
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') flipThrough('previous');
+    else if (e.key === 'ArrowRight') flipThrough('next');
+    else if (e.key === 'Escape') closeGallery();
+});
 
 
 export {
     openGallery,
-    setupGallery,
     createImageIndicator,
     deleteExcessImages,
 };

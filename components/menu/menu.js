@@ -11,15 +11,18 @@ function toggleMenu() {
     if (messageContainer.classList.contains('hidden')) menu.classList.toggle('hidden');
 }
 
+
 function closeMenu() {
     const menu = document.querySelector('.menu');
     menu.classList.add('hidden');
 }
 
+
 function showMenuBtn(btnName) {
     const btn = chooseBtn(btnName);
     btn.classList.remove('hidden');
 }
+
 
 function hideMenuBtn(btnName) {
     const btn = chooseBtn(btnName);
@@ -49,45 +52,48 @@ function chooseBtn(btnName) {
 }
 
 
-function setupMenu() {
-    const menuBtn = document.querySelector('.header__btn_menu');
-    menuBtn.addEventListener('click', toggleMenu);
+nextLevelBtn.addEventListener('click', () => {
+    closeMenu();
+    changeLevel();
+});
 
-    const closeBtn = document.querySelector('.menu__btn_close');
-    closeBtn.addEventListener('click', closeMenu);
+galleryBtn.addEventListener('click', () => {
+    closeMenu();
+    openGallery();
+});
 
-    const languageBtn = document.querySelector('.menu__btn_languages');
-    languageBtn.addEventListener('click', changeLanguage);
+resetProgressBtn.addEventListener('click', resetProgress);
 
-    const retryBtn = document.querySelector('.menu__btn_retry');
-    retryBtn.addEventListener('click', () => {
-        closeMenu();
-        startGame();
-    })
 
-    nextLevelBtn.addEventListener('click', () => {
-        closeMenu();
-        changeLevel();
-    });
+const menuBtn = document.querySelector('.header__btn_menu');
+menuBtn.addEventListener('click', toggleMenu);
 
-    galleryBtn.addEventListener('click', () => {
-        closeMenu();
-        openGallery();
-    });
 
-    resetProgressBtn.addEventListener('click', resetProgress);
+const closeBtn = document.querySelector('.menu__btn_close');
+closeBtn.addEventListener('click', closeMenu);
 
-    const contactsBtn = document.querySelector('.menu__btn_contacts');
-    contactsBtn.addEventListener('click', () => {
-        const title = state.language === 'en' ? 'Contacts' : 'Контакты';
-        const message = state.language === 'en' ? 'You are welcome!' : 'Добро пожаловать!';
-        closeMenu();
-        showMessage(message, title, 'contacts');
-    });
-}
+
+const languageBtn = document.querySelector('.menu__btn_languages');
+languageBtn.addEventListener('click', changeLanguage);
+
+
+const retryBtn = document.querySelector('.menu__btn_retry');
+retryBtn.addEventListener('click', () => {
+    closeMenu();
+    startGame();
+});
+
+
+const contactsBtn = document.querySelector('.menu__btn_contacts');
+contactsBtn.addEventListener('click', () => {
+    const title = state.language === 'en' ? 'Contacts' : 'Контакты';
+    const message = state.language === 'en' ? 'You are welcome!' : 'Добро пожаловать!';
+    closeMenu();
+    showMessage(message, title, 'contacts');
+});
+
 
 export {
-    setupMenu,
     closeMenu,
     showMenuBtn,
     hideMenuBtn,

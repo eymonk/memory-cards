@@ -1,7 +1,7 @@
 .menu {
     z-index: 997;
     position: absolute;
-    right: 0px;
+    right: 0;
     width: 100%;
     max-width: 320px;
     padding: var(--gap-large-2);
@@ -40,6 +40,6 @@
         padding-top: var(--gap-medium);
         gap: var(--gap-medium);
         border-left: none;
-        border-bottom-left-radius: 0px;
+        border-bottom-left-radius: 0;
     }
 }
