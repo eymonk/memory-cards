@@ -23,8 +23,8 @@ addLevelMessage('ru', 'Кажется у тебя довольно острый 
 addLevelMessage('en', 'Only 1 level left to win the whole game! <br><br> 😮😮😮', 'WOW!!!');
 addLevelMessage('ru', 'Всего лишь 1 уровень остался, чтобы пройти всю игру! <br><br> 😮😮😮', 'УОУ!!!');
 
-addLevelMessage('en', `You proved to be a real MIND! <br> I'm truly astonished! 😲 <br><br> Thanks for your time. I hope you liked the game! <br> Well, at least it trained your cognitive skills a little bit😊 <br><br> Good luck!`, 'UNBELIEVABLE ❗❕❗');
-addLevelMessage('ru', 'Ты доказал, что ты реально МОЗГ! <br> Я искренне поражён! 😲 <br><br> Спасибо за твоё время. Надеюсь, тебе понравилась игра! <br> Ну, по крайней мере она немного потренила твои когнитивные навыки😊 <br><br> Удачи!', 'НЕВЕРОЯТНО❗❕❗');
+addLevelMessage('en', `You proved to be a real MIND! <br> I'm truly astonished! 😲 <br><br> Thanks for your time. I hope you liked the game! <br> Well, at least it trained your cognitive skills a little bit😊 <br><br> Good luck!`, 'UNBELIEVABLE ❗❗❗');
+addLevelMessage('ru', 'Ты доказал, что ты реально МОЗГ! <br> Я искренне поражён! 😲 <br><br> Спасибо за твоё время. Надеюсь, тебе понравилась игра! <br> Ну, по крайней мере она немного потренила твои когнитивные навыки😊 <br><br> Удачи!', 'НЕВЕРОЯТНО❗❗❗');
 
 export { levelMessagesEN, levelMessagesRU };
 

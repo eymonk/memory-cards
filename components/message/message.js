@@ -60,10 +60,10 @@ function showMessage(text, title, type) {
 }
 
 function showLevelMessage() {
-    let text, title;
     const messages = state.language === 'en' ? levelMessagesEN : levelMessagesRU;
-    const message = messages[state.level];
+    const message = messages[state.level - 1];
     showMessage(message.text, message.title, 'level-next');
+    if (state.level === 5) messageControlsContacts.classList.remove('hidden');
 }
 
 
