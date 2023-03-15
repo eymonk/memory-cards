@@ -40,6 +40,9 @@ function resetState() {
 
 
 function startGame() {
+    const gameStartSound = document.getElementById('sound__game-start');
+    gameStartSound.play();
+
     hideMenuBtn('next-level');
     hideMenuBtn('gallery');
     closeAllCards();

@@ -153,6 +153,9 @@ function checkOpenedCard(card) {
 
 
 function openCard(card) {
+    const cardFlipSound = document.getElementById('sound__card-flip');
+    cardFlipSound.play();
+
     card.classList.add('visible');
     state.cards.openedNumber++;
     checkOpenedCard(card);
