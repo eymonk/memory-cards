@@ -23,7 +23,9 @@ function closeMessage() {
 }
 
 
-function showMessage(text, title = 'System message', type) {
+function showMessage(text, title, type) {
+    if (!title) title = state.language === 'en' ? 'System message' : 'Системное сообщение';
+
     closeMessage();
     const messageText = document.querySelector('.message__text');
     const messageTitle = document.querySelector('.message__title');

@@ -15,8 +15,9 @@ function resetProgress(){
     const userAnswer = confirm(confirmMessage);
 
     if (userAnswer) {
+        const message = state.language === 'en' ? 'The progress was reset. Now you can play from the very beginning😉' : 'Прогресс был сброшен. Теперь ты можешь сыграть с самого начала😉';
         localStorage.clear();
-        showMessage('The progress was reset. Now you can play from the very beginning😉');
+        showMessage(message);
         changeLevel(1);
     };
 }
