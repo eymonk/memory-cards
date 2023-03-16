@@ -21,10 +21,16 @@
 }
 
 .menu__title {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: var(--gap-small);
     font-weight: bold;
     color: var(--white);
-    margin-bottom: var(--gap-small);
+}
+.menu__title .icon {
+    transform: translateY(-2px);
 }
 
 .menu.hidden {
