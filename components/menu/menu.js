@@ -52,6 +52,11 @@ function chooseBtn(btnName) {
 }
 
 
+function playSound(sound) {
+    if (state.allowSound) sound.play();
+}
+
+
 nextLevelBtn.addEventListener('click', () => {
     closeMenu();
     changeLevel();
@@ -74,7 +79,7 @@ closeBtn.addEventListener('click', closeMenu);
 
 
 const languageBtn = document.querySelector('.menu__btn_languages');
-languageBtn.addEventListener('click', changeLanguage);
+languageBtn.addEventListener('click', () => changeLanguage());
 
 
 const retryBtn = document.querySelector('.menu__btn_retry');
@@ -92,9 +97,19 @@ contactsBtn.addEventListener('click', () => {
     showMessage(message, title, 'contacts');
 });
 
+const soundBtn = document.querySelector('.header__btn_sound');
+soundBtn.addEventListener('click', () => {
+    const noSoundIcon = document.querySelector('.header__icon_no-sound');
+    const soundIcon = document.querySelector('.header__icon_sound');
+    noSoundIcon.classList.toggle('hidden');
+    soundIcon.classList.toggle('hidden');
+    state.allowSound = state.allowSound ? false : true;
+});
+
 
 export {
     closeMenu,
     showMenuBtn,
     hideMenuBtn,
+    playSound,
 };

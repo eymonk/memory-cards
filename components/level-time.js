@@ -1,9 +1,10 @@
 import state from './state.js';
 import { showMessage } from './message/message.js';
+import { playSound } from './menu/menu.js';
 
 function showStopMessage() {
     const gameOverSound = document.getElementById('sound__game-over');
-    gameOverSound.play();
+    playSound(gameOverSound);
     if (state.language === 'en') showMessage('No time left... Try once more😉', 'Oops!', 'level-stop');
     else showMessage('Не осталось времени... Попробуй ещё раз😉', 'Упс!', 'level-stop');
 }
@@ -20,7 +21,7 @@ function setLevelTimer() {
 
     state.time.timer = setInterval(() => {
         time.textContent = `${--timeLeft}`;
-        if (timeLeft < 5 && timeLeft > 0) tickSound.play();
+        if (timeLeft < 5 && timeLeft > 0) playSound(tickSound);
         if (timeLeft <= 0) {
             clearInterval(state.time.timer);
             state.allowGame = false;

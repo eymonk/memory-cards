@@ -1,10 +1,11 @@
 import { closeAllCards, setupImages } from './cards/cards.js';
 import { setLevelTimer } from './level-time.js';
-import { hideMenuBtn } from './menu/menu.js';
+import { hideMenuBtn, playSound } from './menu/menu.js';
 
 
 const state = {
     allowGame: true,
+    allowSound: true,
     level: 1,
     language: 'en',
 
@@ -41,7 +42,7 @@ function resetState() {
 
 function startGame() {
     const gameStartSound = document.getElementById('sound__game-start');
-    gameStartSound.play();
+    playSound(gameStartSound);
 
     hideMenuBtn('next-level');
     hideMenuBtn('gallery');

@@ -1,9 +1,9 @@
-import state, { startGame } from '../state.js';
-import { openGallery } from '../gallery/gallery.js';
-import { closeMenu } from '../menu/menu.js';
-import { changeLevel } from '../cards/cards.js';
-import changeLanguage from '../languages/languages.js';
 import { levelMessagesRU, levelMessagesEN } from './level-messages.js';
+import changeLanguage from '../languages/languages.js';
+import { closeMenu, playSound} from '../menu/menu.js';
+import { openGallery } from '../gallery/gallery.js';
+import { changeLevel } from '../cards/cards.js';
+import state, { startGame } from '../state.js';
 
 
 const messageContainer = document.querySelector('.message__container');
@@ -67,11 +67,11 @@ function showLevelMessage() {
 
     if (state.level === 5) {
         const victorySound = document.getElementById('sound__victory');
-        victorySound.play();
+        playSound(victorySound);
         messageControlsContacts.classList.remove('hidden');
     } else {
         const levelFinishSound = document.getElementById('sound__level-finish');
-        levelFinishSound.play();
+        playSound(levelFinishSound);
     }
 }
 

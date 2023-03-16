@@ -1,4 +1,4 @@
-import state, {setLevelState, startGame} from '../state.js';
+import state, { setLevelState, startGame} from '../state.js';
 import { showLevelMessage } from '../message/message.js';
 import { saveProgress } from '../progress.js';
 
@@ -9,8 +9,9 @@ import {
 } from '../gallery/gallery.js';
 
 import {
-    closeMenu,
     showMenuBtn,
+    closeMenu,
+    playSound,
 } from '../menu/menu.js';
 
 
@@ -154,7 +155,7 @@ function checkOpenedCard(card) {
 
 function openCard(card) {
     const cardFlipSound = document.getElementById('sound__card-flip');
-    cardFlipSound.play();
+    playSound(cardFlipSound);
 
     card.classList.add('visible');
     state.cards.openedNumber++;
