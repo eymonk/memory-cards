@@ -8,12 +8,13 @@
 
     display: flex;
     justify-content: center;
-    align-items: center;
-
+    align-items: flex-start;
     background: var(--transparent-dark);
 }
 
 .message {
+    position: absolute;
+    transform: translateY(-50%);
     width: 92%;
     max-width: 640px;
     padding: var(--gap-large-3);

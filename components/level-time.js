@@ -21,7 +21,7 @@ function setLevelTimer() {
 
     state.time.timer = setInterval(() => {
         time.textContent = `${--timeLeft}`;
-        if (timeLeft < 5 && timeLeft > 0) playSound(tickSound);
+        if (timeLeft < 4 && timeLeft > 0) playSound(tickSound);
         if (timeLeft <= 0) {
             clearInterval(state.time.timer);
             state.allowGame = false;

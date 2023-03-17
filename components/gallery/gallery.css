@@ -134,7 +134,7 @@
 	.gallery__button_close {
 		position: relative;
 		z-index: 101;
-		height: 15%;
+		height: 12%;
 	}
 	.gallery__button_previous,
 	.gallery__button_next {

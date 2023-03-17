@@ -86,9 +86,9 @@ function addImages() {
     state.imagesSources.compressed = [];
 
     for (let i = 0; i < (state.cards.totalNumber / 2); i++) {
-        state.imagesSources.original.push(`../assets/img/${i + 1}.jpg`);
-        state.imagesSources.compressed.push(`../assets/img/compressed/${i + 1}.jpg`);
-        state.imagesSources.compressed.push(`../assets/img/compressed/${i + 1}.jpg`);
+        state.imagesSources.original.push(`./assets/img/${i + 1}.jpg`);
+        state.imagesSources.compressed.push(`./assets/img/compressed/${i + 1}.jpg`);
+        state.imagesSources.compressed.push(`./assets/img/compressed/${i + 1}.jpg`);
     }
 
     setupImages();

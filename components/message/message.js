@@ -27,6 +27,10 @@ function closeMessage() {
 function showMessage(text, title, type) {
     closeMenu();
     closeMessage();
+
+    const message = document.querySelector('.message');
+    message.style.top = `calc(${scrollY}px + 50%)`;
+    
     if (!title) title = state.language === 'en' ? 'System message' : 'Системное сообщение';
 
     const messageText = document.querySelector('.message__text');

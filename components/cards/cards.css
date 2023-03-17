@@ -156,21 +156,33 @@
 }
 
 @media screen and (max-width: 780px) {
+    .main__wrapper_cards {
+        gap: var(--gap-small);
+    }
+
     .grid-5-2 {
-        max-width: 280px;
+        max-width: 230px;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(5, 1fr);
     }
     .grid-5-2 .card {
-        max-width: 130px;
-        height: 180px;
+        max-width: 110px;
+        height: 150px;
     }
 }
 
 @media screen and (max-width: 750px) {
+    .grid-4-2 {
+        max-width: 270px;
+    }
+    .grid-4-2 .card {
+        max-width: 130px;
+        height: 180px;
+        border-width: 3px;
+    }
+
     .grid-4-3 {
         max-width: 600px;
-        gap: 12px;
     }
     .grid-4-3 .card {
         max-width: 140px;
@@ -190,6 +202,7 @@
 
 @media screen and (max-width: 640px) {
     .grid-5-4 {
+        max-width: 590px;
         gap: 8px;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(5, 1fr);
@@ -225,10 +238,7 @@
 
 @media screen and (max-width: 480px) {
     .grid-4-4 {
-        max-width: 230px;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(8, 1fr);
-        gap: 8px;
+        max-width: 480px;
     }
     .grid-4-4 .card{
         max-width: 110px;
@@ -244,7 +254,6 @@
 
     .grid-4-3 {
         max-width: 350px;
-        gap: 8px;
     }
     .grid-4-3 .card{
         max-width: 120px;
@@ -254,13 +263,17 @@
 
     .grid-5-4 {
         gap: 4px;
+        max-width: 380px;
+    }
+    .grid-5-4 .card{
+        max-width: 90px;
+        height: 120px;
     }
 }
 
-@media screen and (max-width: 450px) {
-    .grid-5-4 {
-        max-width: 230px;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(10, 1fr);
+@media screen and (max-width: 400px) {
+    .grid-4-4 .card{
+        max-width: 110px;
+        height: 120px;
     }
 }
