@@ -6,5 +6,5 @@ This project is a simple, but pleasant card-game to entertain you a bit and trai
 [https://dakochkin.ru/memory-cards/](https://dakochkin.ru/memory-cards/)
 
 ## Contacts 
-Telegram:[@jaysun0](https://t.me/jaysun0)
+Telegram:[@jaysun0](https://t.me/jaysun0)<br>
 CV: [web-page](https://jaysuno0.github.io/rsschool-cv/)
